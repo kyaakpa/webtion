@@ -13,7 +13,7 @@ const Contact = () => {
   const onSubmit = async (data, e) => {
     e.preventDefault();
 
-    await fetch("http://localhost:5000/api/contact", {
+    await fetch("https://webtionbackend.onrender.com/", {
       method: "POST",
       mode: "cors",
       headers: {
