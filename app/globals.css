@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dark {
+  @apply bg-black;
+}
+
+.active {
+  @apply font-semibold text-white underline underline-offset-8 decoration-blue-600;
+}
+
+input,
+textarea {
+  @apply outline-none p-2 bg-neutral-800;
+}
+
+@layer utilities {
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+}
