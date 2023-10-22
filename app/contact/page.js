@@ -13,7 +13,7 @@ const Contact = () => {
   const onSubmit = async (data, e) => {
     e.preventDefault();
 
-    await fetch("https://webtionbackend.onrender.com/", {
+    await fetch("https://webtionbackend.onrender.com", {
       method: "POST",
       mode: "cors",
       headers: {
@@ -35,7 +35,6 @@ const Contact = () => {
       <div className="flex flex-col text-white gap-8 w-[400px] self-center ">
         <h1 className="text-7xl font-semibold tracking-tight">Contact Us</h1>
         <form
-          // onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col gap-3 w-full "
           onSubmit={handleSubmit(onSubmit)}
         >
