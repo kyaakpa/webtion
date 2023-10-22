@@ -7,11 +7,11 @@ const Nav = () => {
 
   return (
     <nav>
-      <ul className="flex p-12 pt-20 gap-12 text-2xl text-neutral-500">
+      <ul className="flex p-12 pt-20 gap-12 text-xl text-neutral-500">
         <li className={path === "/welcome" ? "active" : "inactive"}>
           <Link href="/welcome">welcome</Link>
         </li>
-        <li className={path === "/showcase" ? "active" : "inactive"}>
+        <li className={path === "/services" ? "active" : "inactive"}>
           <Link href={"/services"}>services</Link>
         </li>
         <li className={path === "/contact" ? "active" : "inactive"}>

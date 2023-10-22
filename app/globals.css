@@ -12,7 +12,7 @@
 
 input,
 textarea {
-  @apply outline-none p-2 bg-neutral-800;
+  @apply outline-none p-2 bg-neutral-800 rounded-lg;
 }
 
 @layer utilities {

@@ -1,9 +1,13 @@
 "use client";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
-import humanImage from "@/public/humanVec.webp";
+import humanImage from "@/public/waving.webp";
+import { ToastContainer, toast } from "react-toastify";
+import "@/styles/ReactToastify.css";
+import { useState } from "react";
 
 const Contact = () => {
+  const [textAreaCount, ChangeTextAreaCount] = useState(0);
   const {
     handleSubmit,
     register,
@@ -13,29 +17,47 @@ const Contact = () => {
 
   const onSubmit = async (data, e) => {
     e.preventDefault();
+    try {
+      const response = await fetch(
+        "https://webtionbackend.onrender.com/api/contact",
+        {
+          method: "POST",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
 
-    await fetch("https://webtionbackend.onrender.com/api/contact", {
-      method: "POST",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+      const serverResponse = await response.text();
 
-    reset();
+      if (serverResponse === "done") {
+        toast.success("We've received your request.", {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+        console.log("success");
+      } else {
+        toast.error("Whoops! Somethings not right", {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+        console.log("negative");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <div className="flex lg:justify-evenly justify-center">
       <Image
         src={humanImage}
-        width={700}
-        height={700}
+        width={500}
+        height={500}
         alt="Human Interaction"
         className="lg:block hidden"
       />
-      <div className="flex flex-col text-white gap-8 w-[400px] self-center ">
+      <div className="flex flex-col text-white gap-8 w-[412px] self-center ">
         <h1 className="text-7xl font-semibold tracking-tight">Contact Us</h1>
         <form
           className="flex flex-col gap-3 w-full "
@@ -70,13 +92,15 @@ const Contact = () => {
             {errors.email && errors.email.message}
           </div>
           <div className="flex flex-col ">
-            <span>Description</span>
+            <span>Description {textAreaCount}/300</span>
             <textarea
               placeholder="Description"
               {...register("description", {
                 required: "Required",
               })}
               rows={7}
+              maxLength={300}
+              onChange={(e) => ChangeTextAreaCount(e.target.value.length)}
             />
           </div>
           <button
@@ -88,6 +112,7 @@ const Contact = () => {
           </button>
         </form>
       </div>
+      <ToastContainer />
     </div>
   );
 };
