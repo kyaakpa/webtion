@@ -56,6 +56,7 @@ const Contact = () => {
         height={500}
         alt="Human Interaction"
         className="lg:block hidden"
+        priority
       />
       <div className="flex flex-col text-white gap-8 w-[412px] self-center ">
         <h1 className="text-7xl font-semibold tracking-tight">Contact Us</h1>
