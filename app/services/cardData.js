@@ -1,0 +1,47 @@
+export const cardData = [
+  {
+    title: "Basic",
+    titleColor: "text-green-500",
+    caption: "Perfect for Small Business",
+    bonusCaption: "",
+    list: [
+      "Upto 5 pages",
+      "Custom Web Design",
+      "Contact Form",
+      "Mobile Responsive",
+      "Google Reviews",
+      "Dark mode",
+    ],
+    price: "Purchase: A$1699",
+  },
+  {
+    title: "Premium",
+    caption: "Most Popular Choice",
+    bonusCaption: "",
+    titleColor: "text-yellow-300",
+    list: [
+      "Upto 15 pages",
+      "Custom Web Design",
+      "Contact Form",
+      "Mobile Responsive",
+      "Google Reviews",
+      "Dark mode",
+    ],
+    price: "Purchase: A$2699",
+  },
+  {
+    title: "Custom",
+    caption: "Built with your preferences",
+    bonusCaption: "Starting from A$1499",
+    titleColor: "text-blue-600",
+    list: [
+      "Unlimited pages",
+      "Custom Web Design",
+      "Contact Form",
+      "Mobile Responsive",
+      "Google Reviews",
+      "Dark mode",
+    ],
+    price: "Build Now",
+  },
+];

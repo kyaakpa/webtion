@@ -1,76 +1,27 @@
-import { Tick, Cross } from "../components/Icons";
+import PricingCard from "../components/PricingCard";
+import { cardData } from "./cardData";
 
 const Services = () => {
   return (
     <div className="text-white text-center">
       <h2 className="text-5xl mb-8 tracking-tight font-bold">Pricing</h2>
-      <div className="h-[60vh] flex justify-evenly md:[&>div]:w-[500px] [&>div]:border-slate-500 [&>div]:border [&>div]:rounded-xl [&>div]:flex-col [&>div]:w-1/3 gap-4">
-        <div className="ml-8 p-2 lg:hover:scale-110 flex flex-col justify-between">
-          <div className="">
-            <h5 className="text-2xl pt-2 text-green-500 font-semibold">
-              Eco-Friendly
-            </h5>
-            <p className="text-sm px-4 text-neutral-300">
-              Perfect For Small businesses
-            </p>
-          </div>
-          <ul className="text-left pl-2 pt-4 flex flex-col gap-4 [&>li]:flex [&>li]:gap-2">
-            <li>{<Tick />} Custom Web Design</li>
-            <li>{<Tick />}Contact Form</li>
-            <li>{<Tick />}Upto 5 pages</li>
-            <li>{<Tick />}Mobile Responsive</li>
-            <li>{<Tick />}Google Reviews</li>
-            <li>{<Cross />}Dark mode</li>
-            <li>{<Tick />}dark mode</li>
-          </ul>
-          <button className="p-4 font-semibold text-2xl bg-white text-black rounded-xl hover:scale-95">
-            Purchase
-          </button>
-        </div>
-        <div className="p-2 lg:hover:scale-110 flex flex-col justify-between">
-          <div className="">
-            <h5 className="text-2xl pt-2 text-blue-600 font-semibold">
-              Normal
-            </h5>
-            <p className="text-sm text-neutral-300">
-              Perfect For Small businesses
-            </p>
-          </div>
-          <ul className="text-left pl-2 pt-4 flex flex-col gap-4 [&>li]:flex [&>li]:gap-2">
-            <li>{<Tick />} Custom Web Design</li>
-            <li>{<Tick />}Contact Form</li>
-            <li>{<Tick />}Upto 5 pages</li>
-            <li>{<Tick />}Mobile Responsive</li>
-            <li>{<Tick />}Google Reviews</li>
-            <li>{<Cross />}Dark mode</li>
-            <li>{<Tick />}dark mode</li>
-          </ul>
-          <button className="p-4 font-semibold text-2xl bg-white text-black rounded-xl hover:scale-95">
-            Purchase
-          </button>
-        </div>
-        <div className="mr-8 p-2 lg:hover:scale-110 flex flex-col justify-between">
-          <div className="">
-            <h5 className="text-2xl pt-2 text-yellow-300 font-semibold">
-              Premium
-            </h5>
-            <p className="text-sm text-neutral-300">
-              Perfect For Small businesses
-            </p>
-          </div>
-          <ul className="text-left pl-2 pt-4 flex flex-col gap-4 [&>li]:flex [&>li]:gap-2">
-            <li>{<Tick />} Custom Web Design</li>
-            <li>{<Tick />}Contact Form</li>
-            <li>{<Tick />}Upto 5 pages</li>
-            <li>{<Tick />}Mobile Responsive</li>
-            <li>{<Tick />}Google Reviews</li>
-            <li>{<Cross />}Dark mode</li>
-            <li>{<Tick />}dark mode</li>
-          </ul>
-          <button className="p-4 font-semibold text-2xl bg-white text-black rounded-xl hover:scale-95">
-            Purchase
-          </button>
-        </div>
+      <div className="fixed w-full flex justify-center  -z-20">
+        <div className="absolute left-[100px] sm:w-[500px] sm:h-[500px] w-[500px] h-[500px] bg-pink-600 rounded-full mix-blend-multiply filter blur-2xl opacity-10 animate-blob"></div>
+        <div className="absolute right-[100px] sm:w-[500px] sm:h-[500px] w-[500px] h-[500px] bg-emerald-500 rounded-full mix-blend-multiply filter blur-2xl opacity-10 animate-blob animation-delay-2000"></div>
+        <div className="absolute sm:w-[500px] sm:h-[500px] w-[500px] h-[500px] bg-blue-600 rounded-full mix-blend-multiply filter blur-2xl opacity-10 animate-blob animation-delay-4000"></div>
+      </div>
+      <div className="flex lg:justify-center lg:[&>div]:w-96 [&>div]:w-[380px] h-[60vh] flex-col lg:flex-row  [&>div]:rounded-xl gap-4">
+        {cardData.map((data) => (
+          <PricingCard
+            key={data.title}
+            title={data.title}
+            titleColor={data.titleColor}
+            caption={data.caption}
+            bonusCaption={data.bonusCaption}
+            list={data.list}
+            price={data.price}
+          />
+        ))}
       </div>
     </div>
   );

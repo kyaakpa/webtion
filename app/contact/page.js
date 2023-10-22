@@ -49,7 +49,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="flex lg:justify-evenly justify-center">
+    <div className="flex lg:justify-evenly justify-center mt-12 max-h-screen h-full">
       <Image
         src={humanImage}
         width={500}
@@ -93,14 +93,16 @@ const Contact = () => {
             {errors.email && errors.email.message}
           </div>
           <div className="flex flex-col ">
-            <span>Description {textAreaCount}/300</span>
+            <div className="flex justify-between">
+              <span>Description</span> <span>{textAreaCount}/500</span>
+            </div>
             <textarea
               placeholder="Description"
               {...register("description", {
                 required: "Required",
               })}
               rows={7}
-              maxLength={300}
+              maxLength={500}
               onChange={(e) => ChangeTextAreaCount(e.target.value.length)}
             />
           </div>
