@@ -7,13 +7,14 @@ const Contact = () => {
   const {
     handleSubmit,
     register,
+    reset,
     formState: { errors },
   } = useForm();
 
   const onSubmit = async (data, e) => {
     e.preventDefault();
 
-    await fetch("https://webtionbackend.onrender.com", {
+    await fetch("https://webtionbackend.onrender.com/api/contact", {
       method: "POST",
       mode: "cors",
       headers: {
@@ -21,6 +22,8 @@ const Contact = () => {
       },
       body: JSON.stringify(data),
     });
+
+    reset();
   };
 
   return (
