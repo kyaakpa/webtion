@@ -12,7 +12,7 @@ const PricingCard = ({
     <div className="mx-auto lg:mx-0 p-2 flex lg:flex-col border border-neutral-700 justify-between">
       <div>
         <h5 className={`text-3xl pt-2 ${titleColor} font-semibold`}>{title}</h5>
-        <p className="text-sm px-4 text-neutral-300 flex-col flex">
+        <p className="pt-2 text-sm px-4 text-neutral-300 flex-col flex">
           {caption}
           <span>{bonusCaption}</span>
         </p>
