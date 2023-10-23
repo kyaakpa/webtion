@@ -10,9 +10,12 @@
   @apply font-semibold text-white underline underline-offset-8 decoration-blue-600;
 }
 
-input,
+input {
+  @apply outline-none p-2 bg-black border-neutral-500 border-b-2;
+}
+
 textarea {
-  @apply outline-none p-2 bg-neutral-800;
+  @apply border-2 rounded-sm border-neutral-500 outline-none p-2 bg-black;
 }
 
 @layer utilities {

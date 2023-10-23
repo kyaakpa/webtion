@@ -58,7 +58,7 @@ const Contact = () => {
         className="lg:block hidden"
         priority
       />
-      <div className="flex flex-col text-white gap-8 w-[412px] self-center ">
+      <div className="flex flex-col text-white gap-8 self-center ">
         <h1 className="text-7xl font-semibold tracking-tight">Contact Us</h1>
         <form
           className="flex flex-col gap-3 w-full "
@@ -92,9 +92,10 @@ const Contact = () => {
             />
             {errors.email && errors.email.message}
           </div>
-          <div className="flex flex-col ">
+          <div className="flex flex-col pt-2">
             <div className="flex justify-between">
-              <span>Description</span> <span>{textAreaCount}/500</span>
+              <span className="pb-2">Description</span>{" "}
+              <span className="text-sm self-end">{textAreaCount}/500</span>
             </div>
             <textarea
               placeholder="Description"
