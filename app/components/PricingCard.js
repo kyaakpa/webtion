@@ -1,3 +1,5 @@
+import Link from "next/link";
+import CustomForm from "./CustomForm";
 import { Tick, Cross } from "./Icons";
 
 const PricingCard = ({
@@ -26,9 +28,12 @@ const PricingCard = ({
           </li>
         ))}
       </ul>
-      <button className="p-4 font-semibold text-2xl bg-neutral-200 text-black rounded-xl hover:scale-95">
-        {price}
-      </button>
+      <Link
+        href={"/contact"}
+        className="p-4 font-semibold text-2xl bg-neutral-200 text-black rounded-xl hover:scale-95"
+      >
+        <button>{price}</button>
+      </Link>
     </div>
   );
 };
