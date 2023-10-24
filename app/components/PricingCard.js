@@ -20,6 +20,7 @@ const PricingCard = ({
         </p>
       </div>
       <div className="hidden lg:block border-t lg:w-48 w-72 border-neutral-400 self-center" />
+
       <ul className="text-left pl-4 pt-4 flex flex-col gap-4 [&>li]:flex [&>li]:gap-2">
         {list.map((item, index) => (
           <li key={index}>
@@ -30,7 +31,7 @@ const PricingCard = ({
       </ul>
       <Link
         href={"/contact"}
-        className="p-4 self-center font-semibold text-2xl bg-neutral-200 text-black rounded-xl lg:h-auto lg:w-full w-32 hover:scale-95"
+        className="p-4 self-end font-semibold lg:text-2xl text-lg bg-neutral-200 text-black rounded-xl  lg:w-full w-[120px] hover:scale-95"
       >
         <button>{price}</button>
       </Link>
