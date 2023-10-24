@@ -11,11 +11,11 @@
 }
 
 input {
-  @apply outline-none p-2 bg-black border-neutral-500 border-b-2;
+  @apply outline-none p-2 bg-black border-neutral-400 border-b-2;
 }
 
 textarea {
-  @apply border-2 rounded-sm border-neutral-500 outline-none p-2 bg-black;
+  @apply border-2 rounded-sm border-neutral-400 outline-none p-2 bg-black;
 }
 
 @layer utilities {

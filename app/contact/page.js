@@ -49,7 +49,9 @@ const Contact = () => {
   };
 
   return (
-    <div className="flex lg:justify-evenly justify-center mt-12 max-h-screen h-full">
+    <div
+      className={`flex lg:justify-evenly justify-center mt-12 h-full bg-teal-950 rounded-tl-full p-8`}
+    >
       <Image
         src={humanImage}
         width={500}
