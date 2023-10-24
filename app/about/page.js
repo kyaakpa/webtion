@@ -35,27 +35,29 @@ const About = () => {
           well-equipped to handle the most complex web development projects and
           turn your vision into reality.
         </p>{" "}
-        Our Team Our Approach We believe that a successful website is not just
-        about aesthetics; it's about functionality, user experience, and the
-        perfect balance of creativity and technology. Our approach is centered
-        around collaboration, innovation, and a client-first mindset. We work
-        closely with you to understand your specific needs and objectives,
-        ensuring that every website we create is a true reflection of your
-        brand. Why Choose Us? Experience: Our team comprises developers from
-        various backgrounds, giving us a wealth of knowledge and expertise to
-        draw from. Creativity: We're not just developers; we're artists. We
-        infuse creativity into every project, ensuring your website stands out.
-        Friendly Team: We're not just experts; we're friendly, approachable, and
-        easy to work with. We value open communication and collaboration.
-        Client-Centric: Your success is our success. We put your needs at the
-        forefront of everything we do. Cutting-Edge Technology: We stay up to
-        date with the latest industry trends and technologies, ensuring your
-        website is modern and efficient. Let's Work Together Whether you're a
-        startup looking to establish your online presence, an established
-        business seeking a fresh digital makeover, or anyone in between, Company
-        Name is here to make your web development journey enjoyable and
-        successful. Get in touch with our friendly team today, and let's bring
-        your web dreams to life.
+        <p>
+          Our Team Our Approach We believe that a successful website is not just
+          about aesthetics; it's about functionality, user experience, and the
+          perfect balance of creativity and technology. Our approach is centered
+          around collaboration, innovation, and a client-first mindset. We work
+          closely with you to understand your specific needs and objectives,
+          ensuring that every website we create is a true reflection of your
+          brand. Why Choose Us? Experience: Our team comprises developers from
+          various backgrounds, giving us a wealth of knowledge and expertise to
+          draw from. Creativity: We're not just developers; we're artists. We
+          infuse creativity into every project, ensuring your website stands
+          out. Friendly Team: We're not just experts; we're friendly,
+          approachable, and easy to work with. We value open communication and
+          collaboration. Client-Centric: Your success is our success. We put
+          your needs at the forefront of everything we do. Cutting-Edge
+          Technology: We stay up to date with the latest industry trends and
+          technologies, ensuring your website is modern and efficient. Let's
+          Work Together Whether you're a startup looking to establish your
+          online presence, an established business seeking a fresh digital
+          makeover, or anyone in between, Company Name is here to make your web
+          development journey enjoyable and successful. Get in touch with our
+          friendly team today, and let's bring your web dreams to life.
+        </p>
       </div>
     </div>
   );
