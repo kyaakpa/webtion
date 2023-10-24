@@ -112,7 +112,7 @@ const Contact = () => {
           <button
             type="submit"
             onClick={handleSubmit(onSubmit)}
-            className="text-xl  tracking-wide active:scale-90 bg-neutral-200 hover:bg-white rounded-lg self-end p-2 w-1/2 text-black hover:shadow-inner hover:shadow-lg"
+            className="text-xl  tracking-wide active:scale-90 bg-neutral-200 hover:bg-white rounded-lg self-end p-2 w-1/2 text-black"
           >
             Submit
           </button>
