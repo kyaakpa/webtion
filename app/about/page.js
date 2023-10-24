@@ -52,10 +52,10 @@ const About = () => {
         date with the latest industry trends and technologies, ensuring your
         website is modern and efficient. Let's Work Together Whether you're a
         startup looking to establish your online presence, an established
-        business seeking a fresh digital makeover, or anyone in between,
-        [Company Name] is here to make your web development journey enjoyable
-        and successful. Get in touch with our friendly team today, and let's
-        bring your web dreams to life.
+        business seeking a fresh digital makeover, or anyone in between, Company
+        Name is here to make your web development journey enjoyable and
+        successful. Get in touch with our friendly team today, and let's bring
+        your web dreams to life.
       </div>
     </div>
   );
