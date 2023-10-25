@@ -19,7 +19,7 @@ const Welcome = () => {
           initial="hidden"
           transition={{ duration: 0.3, delay: 0.09 }}
           animate="visible"
-          className="text-9xl font-bold  p-3 tracking-tight from-white to-neutral-600 text-transparent bg-gradient-to-b bg-clip-text"
+          className="sm:text-9xl text-8xl font-bold  p-3 tracking-tight from-white to-neutral-600 text-transparent bg-gradient-to-b bg-clip-text"
         >
           Webtion
         </motion.h1>
@@ -31,7 +31,7 @@ const Welcome = () => {
           initial="hidden"
           transition={{ duration: 0.5, delay: 0.5 }}
           animate="visible"
-          className="text-5xl font-semibold text-neutral-100 text-center"
+          className="sm:text-5xl text-3xl font-semibold text-neutral-100 text-center"
         >
           <span className="from-red-800 to-white bg-gradient-to-r bg-clip-text text-transparent font-bold p-1">
             Professional Website Solution
@@ -46,7 +46,7 @@ const Welcome = () => {
           initial="hidden"
           transition={{ duration: 0.5, delay: 1 }}
           animate="visible"
-          className="text-3xl font-semibold pt-40 text-neutral-100"
+          className="sm:text-3xl text-xl font-semibold pt-40 text-neutral-100"
         >
           <Link
             href="/services"

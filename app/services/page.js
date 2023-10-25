@@ -10,7 +10,7 @@ const Services = () => {
         <div className="absolute right-[100px] sm:w-[500px] sm:h-[500px] w-[500px] h-[500px] bg-emerald-500 rounded-full mix-blend-multiply filter blur-2xl opacity-10 animate-blob animation-delay-2000"></div>
         <div className="absolute sm:w-[500px] sm:h-[500px] w-[500px] h-[500px] bg-blue-600 rounded-full mix-blend-multiply filter blur-2xl opacity-10 animate-blob animation-delay-4000"></div>
       </div>
-      <div className="flex lg:h-[60vh] flex-col lg:flex-row gap-4 lg:justify-center mx-12">
+      <div className="flex flex-col lg:flex-row gap-4 items-center lg:h-[60vh] lg:justify-center mx-12">
         {cardData.map((data) => (
           <PricingCard
             key={data.title}

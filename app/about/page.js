@@ -3,7 +3,7 @@ import avatar from "@/public/white-avatar.png";
 const About = () => {
   return (
     <div className="flex text-white">
-      <div className="pl-8 px-8">
+      <div className="pl-8 px-8 mt-8">
         <h2 className="underline underline-offset-8 decoration-emerald-400 text-5xl font-bold tracking-tighter">
           About Us
         </h2>

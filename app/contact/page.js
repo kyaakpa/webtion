@@ -50,18 +50,22 @@ const Contact = () => {
 
   return (
     <div
-      className={`flex lg:justify-evenly justify-center mt-12 h-full bg-teal-950 rounded-tl-full p-8`}
+      className={`flex h-[85vh] lg:justify-evenly justify-center pt-12 bg-neutral-700 rounded-tl-full`}
     >
-      <Image
-        src={humanImage}
-        width={500}
-        height={500}
-        alt="Human Interaction"
-        className="lg:block hidden"
-        priority
-      />
+      <div>
+        <Image
+          src={humanImage}
+          width={500}
+          height={500}
+          alt="Human Interaction"
+          className="lg:block hidden "
+          priority
+        />
+      </div>
       <div className="flex flex-col text-white gap-8 self-center ">
-        <h1 className="text-7xl font-semibold tracking-tight">Contact Us</h1>
+        <h1 className="contact text-7xl font-semibold tracking-tight">
+          Contact Us
+        </h1>
         <form
           className="flex flex-col gap-3 w-full "
           onSubmit={handleSubmit(onSubmit)}

@@ -7,7 +7,7 @@ const Nav = () => {
 
   return (
     <nav>
-      <ul className="flex min-[500px]:pl-12 pl-6 pt-20 min-[500px]:gap-12 gap-8 text-xl text-neutral-500">
+      <ul className="flex justify-center pt-16 sm:gap-12 gap-6 text-xl h-[15vh] text-neutral-500">
         <li className={path === "/welcome" ? "active" : "inactive"}>
           <Link href="/welcome">welcome</Link>
         </li>
