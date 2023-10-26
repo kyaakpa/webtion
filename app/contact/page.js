@@ -36,12 +36,10 @@ const Contact = () => {
         toast.success("We've received your request.", {
           position: toast.POSITION.TOP_RIGHT,
         });
-        console.log("success");
       } else {
         toast.error("Whoops! Somethings not right", {
           position: toast.POSITION.TOP_RIGHT,
         });
-        console.log("negative");
       }
     } catch (error) {
       console.log(error);
@@ -50,7 +48,7 @@ const Contact = () => {
 
   return (
     <div
-      className={`flex h-[85vh] lg:justify-evenly justify-center pt-12 bg-neutral-700 rounded-tl-full`}
+      className={`flex h-[85vh] lg:justify-evenly justify-center pt-12 bg-blue-900 rounded-tl-full`}
     >
       <div>
         <Image
