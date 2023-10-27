@@ -48,7 +48,7 @@ const Contact = () => {
 
   return (
     <div
-      className={`flex h-[85vh] lg:justify-evenly justify-center  bg-violet-900 lg:rounded-tl-full`}
+      className={`flex h-[85vh] lg:justify-evenly justify-center bg-gradient-to-t from-teal-600 to-blue-900 lg:rounded-tl-full`}
     >
       <div>
         <Image
@@ -65,16 +65,16 @@ const Contact = () => {
           Contact Us
         </h1>
         <form
-          className="flex flex-col gap-3 w-full "
+          className="flex flex-col gap-6 w-full "
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="flex flex-col">
-            <span>Full Name</span>
+            {/* <span>Full Name</span> */}
             <input {...register("fullName")} placeholder="Name" />
             {errors.username && errors.username.message}
           </div>
           <div className="flex flex-col">
-            <span>Company Name</span>
+            {/* <span>Company Name</span> */}
             <input
               {...register("companyName")}
               placeholder="Enterprise/Organisation Name"
@@ -82,7 +82,7 @@ const Contact = () => {
             {errors.username && errors.username.message}
           </div>
           <div className="flex flex-col ">
-            <span>Email</span>
+            {/* <span>Email</span> */}
             <input
               type="email"
               placeholder="Email"
@@ -97,9 +97,11 @@ const Contact = () => {
             {errors.email && errors.email.message}
           </div>
           <div className="flex flex-col pt-2">
-            <div className="flex justify-between">
-              <span className="pb-2">Description</span>{" "}
-              <span className="text-sm self-end">{textAreaCount}/500</span>
+            <div className="flex justify-end">
+              {/* <span className="pb-2">Description</span>{" "} */}
+              <span className="text-sm self-end text-neutral-300">
+                {textAreaCount}/500
+              </span>
             </div>
             <textarea
               placeholder="Description"
@@ -114,7 +116,7 @@ const Contact = () => {
           <button
             type="submit"
             onClick={handleSubmit(onSubmit)}
-            className="text-xl  tracking-wide active:scale-90 bg-neutral-200 hover:bg-white rounded-lg self-end p-2 w-1/2 text-black"
+            className="text-xl mt-3 tracking-wide active:scale-90 bg-neutral-200 hover:bg-white rounded-lg self-end p-2 w-1/2 text-black"
           >
             Submit
           </button>
