@@ -48,7 +48,7 @@ const Contact = () => {
 
   return (
     <div
-      className={`flex h-[85vh] lg:justify-evenly justify-center pt-12 bg-blue-900 rounded-tl-full`}
+      className={`flex h-[75vh] sm:h-[85vh] lg:justify-evenly justify-center  bg-blue-900 lg:rounded-tl-full`}
     >
       <div>
         <Image
@@ -56,7 +56,7 @@ const Contact = () => {
           width={500}
           height={500}
           alt="Human Interaction"
-          className="lg:block hidden "
+          className="lg:block hidden"
           priority
         />
       </div>
