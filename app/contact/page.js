@@ -48,7 +48,7 @@ const Contact = () => {
 
   return (
     <div
-      className={`flex h-[75vh] sm:h-[85vh] lg:justify-evenly justify-center  bg-blue-900 lg:rounded-tl-full`}
+      className={`flex h-[85vh] lg:justify-evenly justify-center  bg-blue-900 lg:rounded-tl-full`}
     >
       <div>
         <Image
@@ -60,7 +60,7 @@ const Contact = () => {
           priority
         />
       </div>
-      <div className="flex flex-col text-white gap-8 self-center ">
+      <div className="flex flex-col text-white gap-8 max-sm:-mt-20 self-center ">
         <h1 className="contact text-7xl font-semibold tracking-tight">
           Contact Us
         </h1>
