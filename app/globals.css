@@ -9,7 +9,7 @@
 }
 
 .active {
-  @apply font-semibold text-white underline underline-offset-8 decoration-blue-600;
+  @apply font-semibold text-white underline underline-offset-8 decoration-blue-600 max-lg:decoration-green-600;
 }
 
 input {

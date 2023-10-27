@@ -48,7 +48,7 @@ const Contact = () => {
 
   return (
     <div
-      className={`flex h-[85vh] lg:justify-evenly justify-center  bg-blue-900 lg:rounded-tl-full`}
+      className={`flex h-[85vh] lg:justify-evenly justify-center  bg-violet-900 lg:rounded-tl-full`}
     >
       <div>
         <Image
