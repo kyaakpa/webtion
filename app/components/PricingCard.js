@@ -54,9 +54,9 @@ const PricingCard = ({
     <div className="p-1 lg:items-center flex max-lg:flex-col lg:flex-col border  border-neutral-700 justify-between lg:justify-evenly rounded-2xl w-full lg:w-[400px] lg:gap-6">
       <Dialog.Root>
         <Dialog.Portal>
-          <Dialog.Overlay className="bg-blackA6 data-[state=open]:animate-overlayShow fixed inset-0" />
-          <Dialog.Content className="border border-neutral-600 fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[420px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-neutral-900 [&>*]:opacity-100 opacity-95 text-neutral-200 p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
-            <Dialog.Title className="text-mauve12 m-0 text-2xl font-medium text-blue-500">
+          <Dialog.Overlay className="bg-black opacity-60 fixed inset-0" />
+          <Dialog.Content className="border p-6 border-neutral-600 fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[420px] translate-x-[-50%] translate-y-[-50%] rounded-3xl bg-[#050505] [&>*]:opacity-100 text-neutral-200 shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
+            <Dialog.Title className="m-0 text-3xl font-medium text-blue-500">
               Custom Build Options
             </Dialog.Title>
             <Dialog.Description className="text-mauve11 mt-[10px] mb-5 text-[15px] leading-normal">
@@ -90,7 +90,7 @@ const PricingCard = ({
                 })}
               />
               <input
-                type="number"
+                type="Number"
                 placeholder="Pages"
                 {...register("Pages", { required: true, max: 26 })}
               />
@@ -162,7 +162,7 @@ const PricingCard = ({
                 className="absolute top-[10px] right-[10px] p-3"
                 aria-label="Close"
               >
-                <Cross />
+                <Cross fill="#666" />
               </button>
             </Dialog.Close>
           </Dialog.Content>
@@ -184,7 +184,7 @@ const PricingCard = ({
               {list.map((item, index) => (
                 <li key={index} className="flex gap-2 p-2">
                   {item === "Dark mode" && title === "Basic" ? (
-                    <Cross />
+                    <Cross fill={"#d00"} />
                   ) : (
                     <Tick />
                   )}
@@ -196,14 +196,14 @@ const PricingCard = ({
         </div>
         {price === "Build Now" ? (
           <Dialog.Trigger asChild>
-            <button className="flex p-4 justify-center font-semibold lg:text-2xl text-lg lg:block bg-neutral-200 text-black rounded-xl self-end lg:w-full w-full hover:scale-95">
+            <button className="flex p-4 justify-center font-semibold lg:text-2xl text-lg lg:block bg-neutral-200 text-black rounded-xl self-end lg:w-full w-full hover:scale-[0.99]">
               {price}
             </button>
           </Dialog.Trigger>
         ) : (
           <Link
             href={"/contact"}
-            className="flex p-4 justify-center font-semibold lg:text-2xl text-lg lg:block bg-neutral-200 text-black rounded-xl self-end lg:w-full w-full hover:scale-95"
+            className="flex p-4 justify-center font-semibold lg:text-2xl text-lg lg:block bg-neutral-200 text-black rounded-xl self-end lg:w-full w-full hover:scale-[0.99]"
           >
             <button>{price}</button>
           </Link>
