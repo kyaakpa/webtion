@@ -20,41 +20,42 @@ const PricingCard = ({
   } = useForm();
 
   const onSubmit = async (data, e) => {
+    console.log(data);
     e.preventDefault();
-    try {
-      const response = await fetch(
-        "https://webtionbackend.onrender.com/api/contact",
-        {
-          method: "POST",
-          mode: "cors",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
+    // try {
+    //   const response = await fetch(
+    //     "https://webtionbackend.onrender.com/api/contact",
+    //     {
+    //       method: "POST",
+    //       mode: "cors",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //       body: JSON.stringify(data),
+    //     }
+    //   );
 
-      const serverResponse = await response.text();
+    //   const serverResponse = await response.text();
 
-      if (serverResponse === "done") {
-        toast.success("We've received your request.", {
-          position: toast.POSITION.TOP_RIGHT,
-        });
-      } else {
-        toast.error("Whoops! Somethings not right", {
-          position: toast.POSITION.TOP_RIGHT,
-        });
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    //   if (serverResponse === "done") {
+    //     toast.success("We've received your request.", {
+    //       position: toast.POSITION.TOP_RIGHT,
+    //     });
+    //   } else {
+    //     toast.error("Whoops! Somethings not right", {
+    //       position: toast.POSITION.TOP_RIGHT,
+    //     });
+    //   }
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
   return (
     <div className="p-1 lg:items-center flex max-lg:flex-col lg:flex-col border  border-neutral-700 justify-between lg:justify-evenly rounded-2xl w-full lg:w-[400px] lg:gap-6">
       <Dialog.Root>
         <Dialog.Portal>
           <Dialog.Overlay className="bg-blackA6 data-[state=open]:animate-overlayShow fixed inset-0" />
-          <Dialog.Content className="data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-neutral-900 text-neutral-200 p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
+          <Dialog.Content className="border border-neutral-600 fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[420px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-neutral-900 [&>*]:opacity-100 opacity-95 text-neutral-200 p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
             <Dialog.Title className="text-mauve12 m-0 text-2xl font-medium text-blue-500">
               Custom Build Options
             </Dialog.Title>
@@ -62,59 +63,106 @@ const PricingCard = ({
               Select features you want in your website here. Click submit when
               you're done.
             </Dialog.Description>
-            <fieldset className="mb-[15px] flex items-center gap-5">
-              <label
-                className="text-violet11 w-[90px] text-right text-[15px]"
-                htmlFor="name"
-              >
-                Name
-              </label>
+
+            <form
+              className="flex flex-col gap-6 w-full "
+              onSubmit={handleSubmit(onSubmit)}
+            >
               <input
-                className="text-violet11 shadow-violet7 focus:shadow-violet8 inline-flex h-[35px] w-full flex-1 items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none focus:shadow-[0_0_0_2px]"
-                id="name"
-                defaultValue="Pedro Duarte"
+                type="text"
+                placeholder="Name"
+                {...register("Name", { required: true })}
               />
-            </fieldset>
-            <fieldset className="mb-[15px] flex items-center gap-5">
-              <label
-                className="text-violet11 w-[90px] text-right text-[15px]"
-                htmlFor="username"
-              >
-                Username
-              </label>
               <input
-                className="focus:text-violet-600 shadow-violet7 inline-flex h-[35px] w-full flex-1 items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none focus:shadow-[0_0_0_2px]"
-                id="username"
-                defaultValue="@peduarte"
+                type="text"
+                placeholder="Email"
+                {...register("Email", {
+                  required: true,
+                  pattern: /^\S+@\S+$/i,
+                })}
               />
-            </fieldset>
-            <fieldset className="mb-[15px] flex items-center gap-5">
-              <label
-                className="text-violet11 w-[90px] text-right text-[15px]"
-                htmlFor="username"
-              >
-                Username
-              </label>
               <input
-                className="focus:text-violet-600 shadow-violet7 inline-flex h-[35px] w-full flex-1 items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none focus:shadow-[0_0_0_2px]"
-                id="username"
-                type="checkbox"
-                defaultValue="@peduarte"
+                type="text"
+                placeholder="Organization Name"
+                {...register("Organization Name", {
+                  required: true,
+                  maxLength: 98,
+                })}
               />
-            </fieldset>
-            <div className="mt-[25px] flex justify-end">
+              <input
+                type="number"
+                placeholder="Pages"
+                {...register("Pages", { required: true, max: 26 })}
+              />
+              <div className="flex justify-between">
+                <span>Contact Form</span>
+                <div className="flex gap-4">
+                  <span>Yes</span>
+                  <input
+                    {...register("Contact Form", { required: true })}
+                    type="radio"
+                    value="Yes"
+                  />
+                  <span>No</span>
+                  <input
+                    {...register("Contact Form", { required: true })}
+                    type="radio"
+                    value="No"
+                  />
+                </div>
+              </div>
+              <div className="flex justify-between">
+                <span>Google Reviews</span>
+                <div className="flex gap-4">
+                  <span>Yes</span>
+                  <input
+                    {...register("Google Reviews", { required: true })}
+                    type="radio"
+                    value="Yes"
+                  />
+                  <span>No</span>
+                  <input
+                    {...register("Google Reviews", { required: true })}
+                    type="radio"
+                    value="No"
+                  />
+                </div>
+              </div>
+              <div className="flex justify-between">
+                <span>Dark Mode</span>
+                <div className="flex gap-4">
+                  <span>Yes</span>
+                  <input
+                    {...register("Dark Mode", { required: true })}
+                    type="radio"
+                    value="Yes"
+                  />
+                  <span>No</span>
+                  <input
+                    {...register("Dark Mode", { required: true })}
+                    type="radio"
+                    value="No"
+                  />
+                </div>
+              </div>
+
               <Dialog.Close asChild>
-                <button className="bg-green-500 text-green-100 hover:bg-green-600 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:outline-none">
+                <button
+                  onClick={handleSubmit(onSubmit)}
+                  className="bg-green-500 text-green-100 text-lg hover:bg-green-600 h-[42px] items-center justify-center rounded-[4px] px-[20px] mt-8 font-semibold "
+                  aria-label="Submit"
+                >
                   Submit
                 </button>
               </Dialog.Close>
-            </div>
+            </form>
+
             <Dialog.Close asChild>
               <button
-                className="text-violet11 hover:bg-violet4 focus:shadow-violet7 absolute top-[10px] right-[10px] inline-flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-full focus:shadow-[0_0_0_2px] focus:outline-none"
+                className="absolute top-[10px] right-[10px] p-3"
                 aria-label="Close"
               >
-                x
+                <Cross />
               </button>
             </Dialog.Close>
           </Dialog.Content>

@@ -3,8 +3,8 @@ import { cardData } from "./cardData";
 
 const Services = () => {
   return (
-    <div className="text-white text-center mt-8">
-      <h2 className="text-5xl mb-8 tracking-tight font-bold">Pricing</h2>
+    <div className="text-white text-center mt-8 blur-">
+      <h2 className="text-5xl mb-4 tracking-tight font-bold">Pricing</h2>
       <div className="fixed w-full flex justify-center  -z-20">
         <div className="absolute left-[100px] sm:w-[500px] sm:h-[500px] w-[500px] h-[500px] bg-pink-600 rounded-full mix-blend-multiply filter blur-2xl opacity-10 animate-blob"></div>
         <div className="absolute right-[100px] sm:w-[500px] sm:h-[500px] w-[500px] h-[500px] bg-emerald-500 rounded-full mix-blend-multiply filter blur-2xl opacity-10 animate-blob animation-delay-2000"></div>
