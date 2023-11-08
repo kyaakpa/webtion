@@ -18,28 +18,28 @@ const Contact = () => {
   const onSubmit = async (data, e) => {
     e.preventDefault();
     try {
-      const response = await fetch(
-        "https://webtionbackend.onrender.com/api/contact",
-        {
-          method: "POST",
-          mode: "cors",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
+      const response = await fetch("https://webtion.vercel.app/api/contact", {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-      const serverResponse = await response.text();
+      const serverResponse = response;
 
-      if (serverResponse === "done") {
+      if (serverResponse.status === 200) {
         toast.success("We've received your request.", {
           position: toast.POSITION.TOP_RIGHT,
         });
       } else {
-        toast.error("Whoops! Somethings not right", {
-          position: toast.POSITION.TOP_RIGHT,
-        });
+        toast.error(
+          "Message Send Failed !! Please contact us if you are having this issue",
+          {
+            position: toast.POSITION.TOP_RIGHT,
+          }
+        );
       }
     } catch (error) {
       console.log(error);
@@ -69,12 +69,10 @@ const Contact = () => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="flex flex-col">
-            {/* <span>Full Name</span> */}
             <input {...register("fullName")} placeholder="Name" />
             {errors.username && errors.username.message}
           </div>
           <div className="flex flex-col">
-            {/* <span>Company Name</span> */}
             <input
               {...register("companyName")}
               placeholder="Enterprise/Organisation Name"
@@ -82,7 +80,6 @@ const Contact = () => {
             {errors.username && errors.username.message}
           </div>
           <div className="flex flex-col ">
-            {/* <span>Email</span> */}
             <input
               type="email"
               placeholder="Email"
@@ -98,7 +95,6 @@ const Contact = () => {
           </div>
           <div className="flex flex-col pt-2">
             <div className="flex justify-end">
-              {/* <span className="pb-2">Description</span>{" "} */}
               <span className="text-sm self-end text-neutral-300">
                 {textAreaCount}/500
               </span>
