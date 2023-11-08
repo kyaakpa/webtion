@@ -20,35 +20,33 @@ const Contact = () => {
   const onSubmit = async (data, e) => {
     setIsLoading(true);
     e.preventDefault();
+    try {
+      const response = await fetch("https://webtion.vercel.app/api/contact", {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-    setTimeout(async () => {
-      try {
-        const response = await fetch("https://webtion.vercel.app/api/contact", {
-          method: "POST",
-          mode: "cors",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
+      if (response.status === 200) {
+        toast.success("We've received your request.", {
+          position: toast.POSITION.TOP_RIGHT,
         });
-        if (response.status === 200) {
-          toast.success("We've received your request.", {
+        setIsLoading(false);
+      } else {
+        toast.error(
+          "Message Send Failed !! Please contact us if you are having this issue",
+          {
             position: toast.POSITION.TOP_RIGHT,
-          });
-          setIsLoading(false);
-        } else {
-          toast.error(
-            "Message Send Failed !! Please contact us if you are having this issue",
-            {
-              position: toast.POSITION.TOP_RIGHT,
-            }
-          );
-          setIsLoading(false);
-        }
-      } catch (error) {
-        console.log(error);
+          }
+        );
+        setIsLoading(false);
       }
-    }, 3000);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
