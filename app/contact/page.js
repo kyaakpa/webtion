@@ -5,9 +5,11 @@ import humanImage from "@/public/waving.webp";
 import { ToastContainer, toast } from "react-toastify";
 import "@/styles/ReactToastify.css";
 import { useState } from "react";
+import loading from "@/public/loading.webp";
 
 const Contact = () => {
   const [textAreaCount, ChangeTextAreaCount] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
   const {
     handleSubmit,
     register,
@@ -16,34 +18,37 @@ const Contact = () => {
   } = useForm();
 
   const onSubmit = async (data, e) => {
+    setIsLoading(true);
     e.preventDefault();
-    try {
-      const response = await fetch("https://webtion.vercel.app/api/contact", {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
 
-      const serverResponse = response;
-
-      if (serverResponse.status === 200) {
-        toast.success("We've received your request.", {
-          position: toast.POSITION.TOP_RIGHT,
+    setTimeout(async () => {
+      try {
+        const response = await fetch("https://webtion.vercel.app/api/contact", {
+          method: "POST",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
         });
-      } else {
-        toast.error(
-          "Message Send Failed !! Please contact us if you are having this issue",
-          {
+        if (response.status === 200) {
+          toast.success("We've received your request.", {
             position: toast.POSITION.TOP_RIGHT,
-          }
-        );
+          });
+          setIsLoading(false);
+        } else {
+          toast.error(
+            "Message Send Failed !! Please contact us if you are having this issue",
+            {
+              position: toast.POSITION.TOP_RIGHT,
+            }
+          );
+          setIsLoading(false);
+        }
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
-    }
+    }, 3000);
   };
 
   return (
@@ -112,8 +117,17 @@ const Contact = () => {
           <button
             type="submit"
             onClick={handleSubmit(onSubmit)}
-            className="text-xl mt-3 tracking-wide active:scale-90 bg-neutral-200 hover:bg-white rounded-lg self-end p-2 w-1/2 text-black"
+            className="text-xl mt-3 font-medium tracking-wide active:scale-90 bg-neutral-200 hover:bg-white rounded-lg self-end p-2 w-1/2 text-black"
           >
+            <Image
+              src={loading}
+              width={24}
+              className={
+                isLoading === true
+                  ? "absolute mt-[2px] ml-3 animate-spin"
+                  : "hidden"
+              }
+            />{" "}
             Submit
           </button>
         </form>
