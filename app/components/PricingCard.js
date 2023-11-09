@@ -40,20 +40,24 @@ const PricingCard = ({
         });
 
         if (response.status === 200) {
-          toast.success("We've received your request.", {
-            position: toast.POSITION.TOP_RIGHT,
-          });
-          setIsLoading(false);
-          closeModal();
-        } else {
-          toast.error(
-            "Message Send Failed !! Please contact us if you are having this issue",
-            {
+          setTimeout(() => {
+            toast.success("We've received your request.", {
               position: toast.POSITION.TOP_RIGHT,
-            }
-          );
-          setIsLoading(false);
-          closeModal();
+            });
+            setIsLoading(false);
+            closeModal();
+          }, 1000);
+        } else {
+          setTimeout(() => {
+            toast.error(
+              "Message Send Failed !! Please contact us if you are having this issue",
+              {
+                position: toast.POSITION.TOP_RIGHT,
+              }
+            );
+            setIsLoading(false);
+            closeModal();
+          }, 1000);
         }
       } catch (err) {
         console.log(err);
