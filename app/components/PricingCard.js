@@ -26,35 +26,39 @@ const PricingCard = ({
 
   const url = "https://webtion.vercel.app/api/custom";
   const url2 = "http://localhost:3000/api/custom";
-  const onSubmit = async (data, e) => {
+  const onSubmit = (data, e) => {
     setIsLoading(true);
-    closeModal();
-    try {
-      const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
 
-      if (response.status === 200) {
-        toast.success("We've received your request.", {
-          position: toast.POSITION.TOP_RIGHT,
+    setTimeout(async () => {
+      try {
+        const response = await fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
         });
-        setIsLoading(false);
-      } else {
-        toast.error(
-          "Message Send Failed !! Please contact us if you are having this issue",
-          {
+
+        if (response.status === 200) {
+          toast.success("We've received your request.", {
             position: toast.POSITION.TOP_RIGHT,
-          }
-        );
-        setIsLoading(false);
+          });
+          setIsLoading(false);
+          closeModal();
+        } else {
+          toast.error(
+            "Message Send Failed !! Please contact us if you are having this issue",
+            {
+              position: toast.POSITION.TOP_RIGHT,
+            }
+          );
+          setIsLoading(false);
+          closeModal();
+        }
+      } catch (err) {
+        console.log(err);
       }
-    } catch (err) {
-      console.log(err);
-    }
+    }, 3000);
   };
 
   let [isOpen, setIsOpen] = useState(false);
