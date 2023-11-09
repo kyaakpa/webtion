@@ -4,6 +4,9 @@ import { useState, Fragment } from "react";
 import { Tick, Cross } from "./Icons";
 import { Dialog, Transition } from "@headlessui/react";
 import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from "react-toastify";
+import loading from "@/public/loading.webp";
+import Image from "next/image";
 
 const PricingCard = ({
   title,
@@ -16,13 +19,38 @@ const PricingCard = ({
   const {
     handleSubmit,
     register,
-    reset,
     formState: { errors },
   } = useForm();
 
+  const [isLoading, setIsLoading] = useState(false);
+
+  const url = "https://webtion.vercel.app/api/custom";
   const onSubmit = async (data, e) => {
-    console.log(data);
-    e.preventDefault();
+    setIsLoading(true);
+    closeModal();
+
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (response.status === 200) {
+      toast.success("We've received your request.", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      setIsLoading(false);
+    } else {
+      toast.error(
+        "Message Send Failed !! Please contact us if you are having this issue",
+        {
+          position: toast.POSITION.TOP_RIGHT,
+        }
+      );
+      setIsLoading(false);
+    }
   };
 
   let [isOpen, setIsOpen] = useState(false);
@@ -34,6 +62,18 @@ const PricingCard = ({
   function openModal() {
     setIsOpen(true);
   }
+
+  const selects = [
+    {
+      name: "Contact Form",
+      value: "contactForm",
+    },
+    { name: "Google Reviews", value: "googleReviews" },
+    {
+      name: "Dark Mode",
+      value: "darkMode",
+    },
+  ];
 
   return (
     <div className="p-1 lg:items-center flex max-lg:flex-col lg:flex-col border  border-neutral-700 justify-between lg:justify-evenly rounded-2xl w-full lg:w-[400px] lg:gap-6">
@@ -52,7 +92,7 @@ const PricingCard = ({
           </Transition.Child>
 
           <div className="fixed inset-0 overflow-y-auto">
-            <div className="flex min-h-full items-center justify-center p-4 text-center">
+            <div className="flex min-h-full items-center justify-center">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -62,27 +102,35 @@ const PricingCard = ({
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <div className="opacity-100 bg-neutral-950 w-[400px] sm:w-[500px] flex justify-center p-8 rounded-2xl text-neutral-100">
-                  <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all">
-                    <Dialog.Title
-                      as="h3"
-                      className="text-2xl mb-6 font-semibold leading-6 text-blue-600"
-                    >
-                      Build Custom
-                    </Dialog.Title>
+                <div className="opacity-100 bg-gradient-to-b from-slate-950 to-neutral-800 w-[400px] sm:w-[500px] flex justify-center rounded-2xl text-neutral-100">
+                  <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl max-sm:px-6 p-3 text-left align-middle shadow-xl transition-all">
+                    <div className="flex justify-between mt-6">
+                      <Dialog.Title
+                        as="h3"
+                        className="text-3xl font-semibold outline-dashed outline-2 leading-6 p-2 text-blue-600"
+                      >
+                        Build Custom
+                      </Dialog.Title>
+                      <div
+                        onClick={closeModal}
+                        className="rounded-full hover:bg-neutral-400 p-2 "
+                      >
+                        <Cross fill="#444" />
+                      </div>
+                    </div>
                     <form
-                      className="flex flex-col gap-6 w-full "
+                      className="flex flex-col gap-6 w-full mt-8"
                       onSubmit={handleSubmit(onSubmit)}
                     >
                       <input
                         type="text"
                         placeholder="Name"
-                        {...register("Name", { required: true })}
+                        {...register("name", { required: true })}
                       />
                       <input
                         type="text"
                         placeholder="Email"
-                        {...register("Email", {
+                        {...register("email", {
                           required: true,
                           pattern: /^\S+@\S+$/i,
                         })}
@@ -90,80 +138,59 @@ const PricingCard = ({
                       <input
                         type="text"
                         placeholder="Organization Name"
-                        {...register("Organization Name", {
+                        {...register("orgName", {
                           required: true,
                           maxLength: 98,
                         })}
                       />
                       <input
                         type="Number"
-                        placeholder="Pages"
-                        {...register("Pages", { required: true, max: 26 })}
+                        placeholder="Number of Pages"
+                        {...register("pages")}
                       />
-                      <div className="flex justify-between">
-                        <span>Contact Forms</span>
+                      {selects.map((items, index) => {
+                        return (
+                          <div
+                            className="flex justify-between text-base"
+                            key={index}
+                          >
+                            <span>{items.name}</span>
 
-                        <div className="flex gap-4">
-                          <label htmlFor="yes">Yes</label>
-                          <input
-                            {...register("Contact Form", { required: true })}
-                            type="radio"
-                            value="Yes"
-                            name="yes"
-                          />
-                          <span>No</span>
-                          <input
-                            {...register("Contact Form", { required: true })}
-                            type="radio"
-                            value="No"
-                          />
-                        </div>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Google Reviews</span>
-                        <div className="flex gap-4">
-                          <span>Yes</span>
-                          <input
-                            {...register("Google Reviews", { required: true })}
-                            type="radio"
-                            value="Yes"
-                          />
-                          <span>No</span>
-                          <input
-                            {...register("Google Reviews", { required: true })}
-                            type="radio"
-                            value="No"
-                          />
-                        </div>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Dark Mode</span>
-                        <div className="flex gap-4">
-                          <span>Yes</span>
-                          <input
-                            {...register("Dark Mode", { required: true })}
-                            type="radio"
-                            value="Yes"
-                          />
-                          <span>No</span>
-                          <input
-                            {...register("Dark Mode", { required: true })}
-                            type="radio"
-                            value="No"
-                          />
-                        </div>
+                            <div className="flex gap-4">
+                              <select
+                                {...register(`${items.value}`)}
+                                className="bg-neutral-600 p-2 outline-none rounded-lg flex"
+                              >
+                                <option>(select one)</option>
+
+                                <option value="yes">YES</option>
+                                <option value="no">NO</option>
+                              </select>
+                            </div>
+                          </div>
+                        );
+                      })}
+                      <div className="mt-8 pb-6 flex justify-end">
+                        <button
+                          type="submit"
+                          className="flex gap-4 text-lg justify-center rounded-md border border-transparent bg-neutral-200 px-6 py-2 font-medium text-black hover:text-neutral-200 hover:bg-neutral-600 focus:outline-none"
+                          onClick={() => {
+                            handleSubmit(onSubmit);
+                          }}
+                        >
+                          <span>Request</span>
+                          <div
+                            className={isLoading === false ? "hidden" : "block"}
+                          >
+                            <Image
+                              src={loading}
+                              width={24}
+                              className="animate-spin"
+                            />
+                          </div>
+                        </button>
                       </div>
                     </form>
-
-                    <div className="mt-8 -pb-6 flex justify-end">
-                      <button
-                        type="button"
-                        className="inline-flex justify-center rounded-md border border-transparent bg-neutral-200 px-4 py-2 text-sm font-medium text-black hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                        onClick={closeModal}
-                      >
-                        Got it, thanks!
-                      </button>
-                    </div>
                   </Dialog.Panel>
                 </div>
               </Transition.Child>
@@ -171,7 +198,6 @@ const PricingCard = ({
           </div>
         </Dialog>
       </Transition>
-
       <div className="max-lg:flex max-lg:flex-row max-lg:p-3">
         <div className="lg:p-0 p max-lg:w-1/2 flex flex-col max-lg:justify-center lg:h-[13vh]">
           <h5 className={`text-3xl pt-3 ${titleColor} font-semibold`}>
@@ -188,7 +214,7 @@ const PricingCard = ({
             {list.map((item, index) => (
               <li key={index} className="flex gap-2 p-2">
                 {item === "Dark mode" && title === "Basic" ? (
-                  <Cross fill={"#d00"} />
+                  <Cross fill="#d00" />
                 ) : (
                   <Tick />
                 )}
