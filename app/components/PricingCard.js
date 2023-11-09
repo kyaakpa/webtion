@@ -4,7 +4,7 @@ import { useState, Fragment } from "react";
 import { Tick, Cross } from "./Icons";
 import { Dialog, Transition } from "@headlessui/react";
 import { useForm } from "react-hook-form";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import loading from "@/public/loading.webp";
 import Image from "next/image";
 
@@ -25,31 +25,35 @@ const PricingCard = ({
   const [isLoading, setIsLoading] = useState(false);
 
   const url = "https://webtion.vercel.app/api/custom";
+  const url2 = "http://localhost:3000/api/custom";
   const onSubmit = async (data, e) => {
     setIsLoading(true);
     closeModal();
-
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-
-    if (response.status === 200) {
-      toast.success("We've received your request.", {
-        position: toast.POSITION.TOP_RIGHT,
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       });
-      setIsLoading(false);
-    } else {
-      toast.error(
-        "Message Send Failed !! Please contact us if you are having this issue",
-        {
+
+      if (response.status === 200) {
+        toast.success("We've received your request.", {
           position: toast.POSITION.TOP_RIGHT,
-        }
-      );
-      setIsLoading(false);
+        });
+        setIsLoading(false);
+      } else {
+        toast.error(
+          "Message Send Failed !! Please contact us if you are having this issue",
+          {
+            position: toast.POSITION.TOP_RIGHT,
+          }
+        );
+        setIsLoading(false);
+      }
+    } catch (err) {
+      console.log(err);
     }
   };
 
