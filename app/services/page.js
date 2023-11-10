@@ -10,11 +10,11 @@ const Services = () => {
 
       <h2 className="text-5xl mb-4 tracking-tight font-bold">Pricing</h2>
       <div className="fixed w-full flex justify-center  -z-20">
-        <div className="absolute left-[100px] sm:w-[500px] sm:h-[500px] w-[500px] h-[500px] bg-pink-600 rounded-full mix-blend-multiply filter blur-2xl opacity-10 animate-blob"></div>
-        <div className="absolute right-[100px] sm:w-[500px] sm:h-[500px] w-[500px] h-[500px] bg-emerald-500 rounded-full mix-blend-multiply filter blur-2xl opacity-10 animate-blob animation-delay-2000"></div>
-        <div className="absolute sm:w-[500px] sm:h-[500px] w-[500px] h-[500px] bg-blue-600 rounded-full mix-blend-multiply filter blur-2xl opacity-10 animate-blob animation-delay-4000"></div>
+        <div className="absolute left-[100px] sm:w-[500px] sm:h-[500px] w-[500px] h-[500px] bg-pink-600 rounded-full mix-blend-multiply filter blur-2xl opacity-20 animate-blob"></div>
+        <div className="absolute right-[100px] sm:w-[500px] sm:h-[500px] w-[500px] h-[500px] bg-emerald-500 rounded-full mix-blend-multiply filter blur-2xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute sm:w-[500px] sm:h-[500px] w-[500px] h-[500px] bg-blue-600 rounded-full mix-blend-multiply filter blur-2xl opacity-20 animate-blob animation-delay-4000"></div>
       </div>
-      <div className="flex flex-col lg:flex-row gap-4 items-center lg:h-[65vh] lg:justify-center mx-12">
+      <div className="flex flex-col lg:flex-row gap-4 items-center lg:h-[65vh] lg:justify-center mx-6">
         {cardData.map((data) => (
           <PricingCard
             key={data.title}

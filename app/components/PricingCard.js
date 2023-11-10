@@ -52,7 +52,7 @@ const PricingCard = ({
             "Message Send Failed !! Please contact us if you are having this issue",
             {
               position: toast.POSITION.TOP_RIGHT,
-            }
+            },
           );
           setTimeout(() => {
             setIsLoading(false);
@@ -66,6 +66,12 @@ const PricingCard = ({
   };
 
   let [isOpen, setIsOpen] = useState(false);
+
+  const [totalPrice, setTotalPrice] = useState(1500);
+
+  function getPrice() {
+    return totalPrice;
+  }
 
   function closeModal() {
     setIsOpen(false);
@@ -157,9 +163,22 @@ const PricingCard = ({
                       />
                       <input
                         type="Number"
+                        max={30}
                         placeholder="Number of Pages"
                         {...register("pages")}
+                        onChange={(e) => {
+                          const pages = e.target.value;
+
+                          if (pages === null) {
+                            setTotalPrice(1500);
+                          } else {
+                            const additionalPrice =
+                              Math.max(0, (pages - 5) / 5) * 500;
+                            setTotalPrice(1500 + additionalPrice);
+                          }
+                        }}
                       />
+
                       {selects.map((items, index) => {
                         return (
                           <div
@@ -171,7 +190,7 @@ const PricingCard = ({
                             <div className="flex gap-4">
                               <select
                                 {...register(`${items.value}`)}
-                                className="bg-neutral-600 p-2 outline-none rounded-lg flex"
+                                className="bg-neutral-600 p-2 outline-none rounded-lg text-lg"
                               >
                                 <option>(select one)</option>
 
@@ -182,7 +201,8 @@ const PricingCard = ({
                           </div>
                         );
                       })}
-                      <div className="mt-8 pb-6 flex justify-end">
+                      <div className="mt-8 pb-6 flex justify-between">
+                        <div>Total Price: ${getPrice()}</div>
                         <button
                           type="submit"
                           className="flex gap-4 text-lg justify-center rounded-md border border-transparent bg-neutral-200 px-6 py-2 font-medium text-black hover:text-neutral-200 hover:bg-neutral-600 focus:outline-none"
@@ -211,11 +231,13 @@ const PricingCard = ({
         </Dialog>
       </Transition>
       <div className="max-lg:flex max-lg:flex-row max-lg:p-3">
-        <div className="lg:p-0 p max-lg:w-1/2 flex flex-col max-lg:justify-center lg:h-[13vh]">
-          <h5 className={`text-3xl pt-3 ${titleColor} font-semibold`}>
+        <div className="lg:p-0 max-lg:w-1/2 flex flex-col max-lg:justify-center lg:h-[13vh]">
+          <h5
+            className={`text-3xl pt-3 ${titleColor} font-semibold max-[400px]:text-xl`}
+          >
             {title}
           </h5>
-          <p className="pt-2 lg:h-[5vh] text-sm px-4 text-neutral-300 flex-col flex">
+          <p className="pt-2 lg:h-[5vh] text-sm px-4 text-neutral-300 flex-col flex max-[400px]:text-sm">
             {caption}
             <span>{bonusCaption}</span>
           </p>
@@ -230,7 +252,9 @@ const PricingCard = ({
                 ) : (
                   <Tick />
                 )}
-                {item}
+                <span className="max-sm:w-full max-[400px]:text-sm">
+                  {item}
+                </span>
               </li>
             ))}
           </ul>

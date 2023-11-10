@@ -40,7 +40,7 @@ const Contact = () => {
           "Message Send Failed !! Please contact us if you are having this issue",
           {
             position: toast.POSITION.TOP_RIGHT,
-          }
+          },
         );
         setIsLoading(false);
       }
