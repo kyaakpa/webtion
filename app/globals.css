@@ -6,16 +6,20 @@
   @apply bg-black sm:text-base text-sm;
 }
 
+.light {
+  @apply bg-white;
+}
+
 .active {
-  @apply font-semibold text-white underline underline-offset-8 decoration-blue-600 max-lg:decoration-green-600;
+  @apply font-semibold text-black underline underline-offset-8 decoration-blue-600 max-lg:decoration-green-600;
 }
 
 input {
-  @apply outline-none focus:outline-none p-2 bg-transparent border-neutral-400 border-b-2;
+  @apply placeholder:text-gray-500 outline-none focus:outline-none p-1 bg-transparent border-neutral-500 focus:border-black border-b-2;
 }
 
 textarea {
-  @apply outline-none focus:outline-none p-2 border-2 border-neutral-400 rounded-xl bg-transparent;
+  @apply outline-none placeholder:text-gray-500 focus:outline-none p-2 border-2 border-neutral-500 focus:border-black rounded-xl bg-transparent;
 }
 
 /* width */
@@ -52,7 +56,7 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-background-clip: text;
-  -webkit-text-fill-color: #ffffff;
+  -webkit-text-fill-color: inherit;
   transition: 5000s ease-in-out 0s;
   box-shadow: inset 0 0 20px 20px #23232329;
 }

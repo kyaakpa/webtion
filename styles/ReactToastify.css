@@ -1,6 +1,6 @@
 :root {
-  --toastify-color-light: #121212;
-  --toastify-color-dark: #121212;
+  --toastify-color-light: #fff;
+  --toastify-color-dark: #fff;
   --toastify-color-info: #3498db;
   --toastify-color-success: #07bc0c;
   --toastify-color-warning: #f1c40f;
@@ -16,7 +16,7 @@
   --toastify-toast-max-height: 800px;
   --toastify-font-family: sans-serif;
   --toastify-z-index: 9999;
-  --toastify-text-color-light: #d2d2d2;
+  --toastify-text-color-light: #000;
   --toastify-text-color-dark: #fff;
   --toastify-text-color-info: #fff;
   --toastify-text-color-success: #fff;

@@ -1,24 +1,10 @@
-"use client";
-import Link from "next/link";
-import BuildNowButton from "./BuildNowButton";
-import { useState, Fragment } from "react";
-import { Tick, Cross } from "./Icons";
 import { Dialog, Transition } from "@headlessui/react";
 import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
 import loading from "@/public/loading.webp";
-import Image from "next/image";
+import { useState, Fragment } from "react";
+import { Cross } from "./Icons";
 
-const PricingCard = ({
-  title,
-  titleColor,
-  bgColor,
-  btnBgColor,
-  caption,
-  bonusCaption,
-  list,
-  price,
-}) => {
+const FormModal = ({ closeModal: closeModalProp }) => {
   const {
     handleSubmit,
     register,
@@ -53,7 +39,7 @@ const PricingCard = ({
           setTotalPrice(1500);
           setTimeout(() => {
             setIsLoading(false);
-            closeModal();
+            closeModalProp();
           }, 1000);
         } else {
           toast.error(
@@ -64,7 +50,7 @@ const PricingCard = ({
           );
           setTimeout(() => {
             setIsLoading(false);
-            closeModal();
+            closeModalProp();
           }, 1000);
         }
       } catch (err) {
@@ -107,11 +93,8 @@ const PricingCard = ({
       value: "transitionEffects",
     },
   ];
-
   return (
-    <div
-      className={`${bgColor} p-1 flex max-lg:flex-col lg:flex-col  rounded-2xl h-full lg:justify-between w-full lg:w-[350px] lg:gap-6`}
-    >
+    <div>
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
           <Transition.Child
@@ -248,51 +231,8 @@ const PricingCard = ({
           </div>
         </Dialog>
       </Transition>
-
-      <div className={`max-lg:flex max-lg:p-8 lg:p-4`}>
-        <div className="lg:p-2 max-lg:w-1/2 flex flex-col lg:items-start lg:justify-between max-lg:justify-center lg:h-[8vh]">
-          <h5
-            className={`text-3xl pt-3 font-semibold max-[400px]:text-xl ${titleColor}`}
-          >
-            {title}
-          </h5>
-          <p className="pt-2 lg:h-[5vh] text-sm text-neutral-600 flex-col flex max-[400px]:text-sm">
-            {caption}
-            <span className="lg:text-left">{bonusCaption}</span>
-          </p>
-        </div>
-        <div className="flex flex-col w-full max-lg:w-1/2 justify-center lg:pt-16 text-base text-black">
-          <ul className="flex flex-col gap-2 max-sm:text-base">
-            {list.map((item, index) => (
-              <li
-                key={index}
-                className="max-sm:w-full flex gap-2 items-center lg:font-medium"
-              >
-                <Tick />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      {price === "Build Now" ? (
-        <button
-          onClick={openModal}
-          className="flex p-4 justify-center font-semibold lg:text-2xl text-lg lg:block bg-blue-300 text-blue-900 rounded-xl self-end lg:w-full w-full hover:scale-[0.99]"
-        >
-          {price}
-        </button>
-      ) : (
-        // <BuildNowButton />
-        <Link
-          href={"/contact"}
-          className={`flex p-4 justify-center font-semibold lg:text-2xl text-lg lg:block ${btnBgColor} ${titleColor} rounded-xl self-end lg:w-full w-full hover:scale-[0.99]`}
-        >
-          <button>{price}</button>
-        </Link>
-      )}
     </div>
   );
 };
 
-export default PricingCard;
+export default FormModal;

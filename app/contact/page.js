@@ -34,7 +34,11 @@ const Contact = () => {
         toast.success("We've received your request.", {
           position: toast.POSITION.TOP_RIGHT,
         });
-        setIsLoading(false);
+
+        reset();
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1000);
       } else {
         toast.error(
           "Message Send Failed !! Please contact us if you are having this issue",
@@ -42,7 +46,9 @@ const Contact = () => {
             position: toast.POSITION.TOP_RIGHT,
           },
         );
-        setIsLoading(false);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1000);
       }
     } catch (error) {
       console.log(error);
@@ -51,7 +57,7 @@ const Contact = () => {
 
   return (
     <div
-      className={`flex h-[85vh] lg:justify-evenly justify-center bg-gradient-to-t from-teal-600 to-blue-900 lg:rounded-tl-full`}
+      className={`flex h-[85vh] lg:justify-evenly justify-center  lg:rounded-tl-full`}
     >
       <div>
         <Image
@@ -63,8 +69,19 @@ const Contact = () => {
           priority
         />
       </div>
-      <div className="flex flex-col text-white gap-8 max-sm:-mt-20 self-center ">
-        <h1 className="contact text-7xl font-semibold tracking-tight">
+      <svg
+        viewBox="0 0 200 200"
+        xmlns="http://www.w3.org/2000/svg"
+        className="fixed w-[800px] left-1 -z-10 blur"
+      >
+        <path
+          fill="#fad4fa"
+          d="M25.7,-46.1C38.2,-37.3,56.4,-40.2,62.6,-34.5C68.8,-28.8,63,-14.4,63.3,0.2C63.6,14.8,70.2,29.6,67.3,41.1C64.5,52.6,52.2,60.8,39.4,65.1C26.6,69.4,13.3,69.8,-0.7,71C-14.6,72.1,-29.2,74,-35.5,66C-41.8,57.9,-39.9,39.9,-42,27.2C-44.1,14.6,-50.2,7.3,-53.5,-1.9C-56.8,-11,-57.1,-22.1,-54.4,-33.7C-51.7,-45.4,-46,-57.6,-36.5,-68.1C-26.9,-78.6,-13.5,-87.2,-3.4,-81.3C6.6,-75.4,13.3,-54.9,25.7,-46.1Z"
+          transform="translate(100 100)"
+        />
+      </svg>
+      <div className="flex flex-col gap-8 max-sm:-mt-20 self-center rounded-2xl p-6">
+        <h1 className="contact text-7xl font-semibold tracking-tighter">
           Contact Us
         </h1>
         <form
@@ -98,8 +115,8 @@ const Contact = () => {
           </div>
           <div className="flex flex-col pt-2">
             <div className="flex justify-end">
-              <span className="text-sm self-end text-neutral-300">
-                {textAreaCount}/500
+              <span className="self-end text-black">
+                <span className="font-medium text-lg">{textAreaCount}</span>/500
               </span>
             </div>
             <textarea
@@ -115,7 +132,7 @@ const Contact = () => {
           <button
             type="submit"
             onClick={handleSubmit(onSubmit)}
-            className="text-xl mt-3 font-medium tracking-wide active:scale-90 bg-neutral-200 hover:bg-white rounded-lg self-end p-2 w-1/2 text-black"
+            className="text-xl mt-3 active:scale-90 bg-black hover:bg-white hover:text-black rounded-lg self-end p-2 w-1/2 text-white transition-colors duration-200 ease-in"
           >
             <Image
               src={loading}
