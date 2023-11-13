@@ -14,7 +14,7 @@ const Services = () => {
         <p>We offer various choices as per your requirements</p>
       </div>
 
-      <div className="flex flex-col lg:flex-row gap-8 items-center lg:h-[60vh] lg:justify-center mx-6">
+      <div className="flex flex-col lg:flex-row gap-8 items-center lg:h-[60vh] lg:justify-center lg:mx-8 max-lg:mx-16 max-sm:mx-4">
         {cardData.map((data) => (
           <PricingCard
             key={data.title}

@@ -249,27 +249,27 @@ const PricingCard = ({
         </Dialog>
       </Transition>
 
-      <div className={`max-lg:flex max-lg:p-8 lg:p-4`}>
+      <div className={`max-lg:flex max-lg:p-8 max-sm:px-2 lg:p-4`}>
         <div className="lg:p-2 max-lg:w-1/2 flex flex-col lg:items-start lg:justify-between max-lg:justify-center lg:h-[8vh]">
           <h5
-            className={`text-3xl pt-3 font-semibold max-[400px]:text-xl ${titleColor}`}
+            className={`text-3xl pt-3 font-semibold max-[500px]:text-2xl ${titleColor}`}
           >
             {title}
           </h5>
-          <p className="pt-2 lg:h-[5vh] text-sm text-neutral-600 flex-col flex max-[400px]:text-sm">
+          <p className="pt-2 lg:h-[5vh] text-sm text-neutral-600 flex-col flex">
             {caption}
             <span className="lg:text-left">{bonusCaption}</span>
           </p>
         </div>
-        <div className="flex flex-col w-full max-lg:w-1/2 justify-center lg:pt-16 text-base text-black">
-          <ul className="flex flex-col gap-2 max-sm:text-base">
+        <div className="flex flex-col w-full max-lg:w-1/2 justify-center lg:pt-16 max-[500px]:text-xs text-black">
+          <ul className="flex flex-col gap-2 max-[500px]:text-sm">
             {list.map((item, index) => (
               <li
                 key={index}
-                className="max-sm:w-full flex gap-2 items-center lg:font-medium"
+                className="flex gap-2 items-center lg:font-medium"
               >
                 <Tick />
-                {item}
+                <span className="max-sm:w-full">{item}</span>
               </li>
             ))}
           </ul>

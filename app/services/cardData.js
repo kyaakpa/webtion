@@ -18,7 +18,7 @@ export const cardData = [
   },
   {
     title: "Premium",
-    caption: "Most Popular Choice",
+    caption: "Recommended",
     bonusCaption: "",
     titleColor: "text-pink-900",
     bgColor: "bg-pink-100",
