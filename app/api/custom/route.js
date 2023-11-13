@@ -67,7 +67,15 @@ export async function POST(req) {
           `,
   };
 
-  transporter.sendMail(mailData);
-
-  return NextResponse.json("ok");
+  try {
+    const response = transporter.sendMail(mailData, (err, info) => {
+      if (err) {
+        return NextResponse.json(err);
+      } else {
+        return NextResponse.json("ok");
+      }
+    });
+  } catch (err) {
+    console.log(err);
+  }
 }
