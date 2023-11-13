@@ -68,7 +68,7 @@ export async function POST(req) {
   };
 
   try {
-    const response = transporter.sendMail(mailData, (err, info) => {
+    const response = await transporter.sendMail(mailData, (err, info) => {
       if (err) {
         return NextResponse.json(err);
       } else {
