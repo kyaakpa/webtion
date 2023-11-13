@@ -14,7 +14,7 @@ export const cardData = [
       "Google Reviews",
       "Dark mode",
     ],
-    price: "Purchase: A$1699",
+    price: "Purchase for A$1699",
   },
   {
     title: "Premium",
@@ -32,7 +32,7 @@ export const cardData = [
       "Google Reviews",
       "Dark mode",
     ],
-    price: "Purchase: A$2699",
+    price: "Purchase for A$2699",
   },
   {
     title: "Custom",
