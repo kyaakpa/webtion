@@ -75,8 +75,8 @@ export async function POST(req) {
         return NextResponse.json("ok");
       }
     });
-  } catch (err) {
-    console.log(err);
-    return NextResponse.json(err);
+  } catch (error) {
+    console.log(error);
+    return NextResponse.json(error);
   }
 }
