@@ -21,9 +21,8 @@ const Contact = () => {
     setIsLoading(true);
     e.preventDefault();
     try {
-      const response = await fetch("https://webtion.vercel.app/api/contact", {
+      const response = await fetch("http://localhost:3000/api/contact", {
         method: "POST",
-        mode: "cors",
         headers: {
           "Content-Type": "application/json",
         },

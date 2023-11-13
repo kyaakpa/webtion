@@ -19,7 +19,6 @@ export async function POST(req) {
       pass: process.env.PASSWORD,
     },
     secure: true,
-    requireTLS: true,
   });
 
   const mailData = {
