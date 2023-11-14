@@ -13,7 +13,7 @@ const About = () => {
         />
       </svg>
       <div className=" mt-8">
-        <h2 className="text-center underline underline-offset-8 decoration-emerald-400 text-6xl font-extrabold tracking-tighter mb-10">
+        <h2 className="text-center text-6xl font-extrabold tracking-tighter mb-10">
           About Us
         </h2>
         <div className="w-full flex justify-center">
