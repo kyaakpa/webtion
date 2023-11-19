@@ -80,7 +80,7 @@ const Contact = () => {
         />
       </div>
       <div className="flex flex-col gap-8 max-sm:-mt-20 self-center rounded-2xl p-6 sm:w-[450px]">
-        <h1 className="contact text-7xl font-semibold -tracking-[6px]">
+        <h1 className="contact text-center text-7xl font-semibold -tracking-[6px]">
           CONTACT
         </h1>
         <form
