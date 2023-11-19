@@ -11,21 +11,12 @@ export async function POST(req) {
   const googleReviews = form.googleReviews;
   const darkMode = form.darkMode;
 
-  const transporter = nodemailer.createTransport({
-    port: 465,
-    host: "smtp.gmail.com",
-    auth: {
-      user: process.env.USERID,
-      pass: process.env.PASSWORD,
-    },
-    secure: true,
-  });
-
-  const mailData = {
-    from: `${name} ${email}`,
-    to: process.env.USERID,
-    subject: `Enquiry from ${name}`,
-    html: `
+  try {
+    const mailData = await resend.emails.send({
+      from: `${name} <onboarding@resend.dev>`,
+      to: "soheatshrestha@gmail.com",
+      subject: `Enquiry from ${name}`,
+      html: `
     <head>
     <style>
     body {
@@ -64,18 +55,11 @@ export async function POST(req) {
             </div>
     </body>
           `,
-  };
-
-  try {
-    const response = await transporter.sendMail(mailData, (err, info) => {
-      if (err) {
-        return NextResponse.json(err);
-      } else {
-        return NextResponse.json("ok");
-      }
     });
+
+    return NextResponse.json({ message: "ok" });
   } catch (error) {
     console.log(error);
-    return NextResponse.json(error);
+    return NextResponse.json({ message: "failed" });
   }
 }

@@ -1,18 +1,10 @@
+"use client";
+import { motion } from "framer-motion";
+
 const About = () => {
   return (
-    <div className="flex mb-24 text-lg">
-      <svg
-        viewBox="0 0 200 200"
-        xmlns="http://www.w3.org/2000/svg"
-        className="fixed -z-10 max-lg:-bottom-[300px] w-[1000px] lg:top-[200px] lg:bottom-1 lg:left-[400px] lg:right-1 opacity-40"
-      >
-        <path
-          fill="#f00"
-          d="M26.7,-47.4C31.6,-33.2,30.3,-21.3,35.6,-10.3C40.9,0.7,52.8,10.8,53.1,19.5C53.4,28.1,42.1,35.3,31.3,36.3C20.6,37.2,10.3,32,0.7,31.1C-9,30.2,-17.9,33.6,-29.3,32.8C-40.8,32.1,-54.7,27.2,-61.6,17.3C-68.5,7.5,-68.4,-7.4,-60.9,-16.5C-53.4,-25.6,-38.5,-29,-27.1,-41C-15.7,-53.1,-7.9,-73.7,1.5,-75.8C10.9,-78,21.9,-61.5,26.7,-47.4Z"
-          transform="translate(100 100)"
-        />
-      </svg>
-      <div className=" mt-8">
+    <div>
+      {/* <div className=" mt-8">
         <h2 className="text-center text-6xl font-extrabold tracking-tighter mb-10">
           About Us
         </h2>
@@ -37,6 +29,80 @@ const About = () => {
             successful outcomes.
           </p>
         </div>
+      </div> */}
+      <div className="max-md:text-5xl md:text-7xl md:mx-20 max-md:mx-10 tracking-tighter mt-12">
+        <motion.h2
+          variants={{
+            hidden: { opacity: 0, y: 50 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          initial="hidden"
+          transition={{ duration: 0.3, delay: 0.1 }}
+          animate="visible"
+          className=" font-bold"
+        >
+          Hey there &#128075;,
+        </motion.h2>{" "}
+        <motion.h2
+          variants={{
+            hidden: { opacity: 0, y: 50 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          initial="hidden"
+          transition={{ duration: 0.3, delay: 0.15 }}
+          animate="visible"
+          className=" font-bold"
+        >
+          I'm <span className="underline decoration-green-500">Sohit</span>
+        </motion.h2>
+        <motion.h3
+          variants={{
+            hidden: { opacity: 0, y: 50 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          initial="hidden"
+          transition={{ duration: 0.3, delay: 0.2 }}
+          animate="visible"
+          className="font-semibold"
+        >
+          Web Developer,
+        </motion.h3>
+        <motion.h3
+          variants={{
+            hidden: { opacity: 0, y: 50 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          initial="hidden"
+          transition={{ duration: 0.3, delay: 0.25 }}
+          animate="visible"
+          className="font-medium"
+        >
+          Undergrad Student
+        </motion.h3>
+        <motion.p
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 },
+          }}
+          initial="hidden"
+          transition={{ duration: 0.8, delay: 0.5 }}
+          animate="visible"
+          className="max-md:mt-12 md:mt-20 max-md:text-xl md:text-3xl tracking-tight leading-10"
+        >
+          I'm actively shaping my skills in both the theoretical and practical
+          realms. I enjoy building those digital spaces that make businesses
+          shine online! If there's anything specific you'd like to chat about or
+          discuss, feel free to let me know!
+        </motion.p>
+        <p className="max-md:mt-12 md:mt-20 max-md:text-xl md:text-3xl tracking-tight leading-10">
+          Contact me at{" "}
+          <a
+            href="mailto:kyaakpalama@gmail.com"
+            className="text-green-700  hover:text-red-500 transition-colors duration-300 ease-in"
+          >
+            kyaakpalama@gmail.com
+          </a>
+        </p>
       </div>
     </div>
   );

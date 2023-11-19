@@ -1,9 +1,9 @@
 export const cardData = [
   {
     title: "Basic",
-    titleColor: "text-green-900",
+    titleColor: "green-900",
     bgColor: "bg-green-100",
-    btnBgColor: "bg-green-300",
+    btnBgColor: "green-300",
     caption: "Perfect for Small Business",
     bonusCaption: "",
     list: [
@@ -12,7 +12,6 @@ export const cardData = [
       "Contact Form",
       "Mobile Responsive",
       "Google Reviews",
-      "Dark mode",
     ],
     price: "Purchase for A$1699",
   },
@@ -20,9 +19,9 @@ export const cardData = [
     title: "Premium",
     caption: "Recommended",
     bonusCaption: "",
-    titleColor: "text-pink-900",
+    titleColor: "pink-900",
     bgColor: "bg-pink-100",
-    btnBgColor: "bg-pink-300",
+    btnBgColor: "pink-300",
 
     list: [
       "Upto 15 pages",
