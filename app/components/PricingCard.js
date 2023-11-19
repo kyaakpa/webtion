@@ -284,7 +284,7 @@ const PricingCard = ({
       ) : (
         <Link
           href={"/contact"}
-          className={`flex p-4 justify-center font-semibold lg:text-2xl text-lg lg:block bg-${btnBgColor} text-${titleColor} rounded-xl self-end lg:w-full w-full hover:animate-pulse`}
+          className={`flex p-4 justify-center font-semibold lg:text-2xl text-lg lg:block ${btnBgColor} ${titleColor} rounded-xl self-end lg:w-full w-full hover:animate-pulse`}
         >
           <button>{price}</button>
         </Link>

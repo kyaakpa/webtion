@@ -1,9 +1,9 @@
 export const cardData = [
   {
     title: "Basic",
-    titleColor: "green-900",
+    titleColor: "text-green-900",
     bgColor: "bg-green-100",
-    btnBgColor: "green-300",
+    btnBgColor: "bg-green-300",
     caption: "Perfect for Small Business",
     bonusCaption: "",
     list: [
@@ -19,9 +19,9 @@ export const cardData = [
     title: "Premium",
     caption: "Recommended",
     bonusCaption: "",
-    titleColor: "pink-900",
+    titleColor: "text-pink-900",
     bgColor: "bg-pink-100",
-    btnBgColor: "pink-300",
+    btnBgColor: "bg-pink-300",
 
     list: [
       "Upto 15 pages",
