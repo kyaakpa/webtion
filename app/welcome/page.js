@@ -31,7 +31,7 @@ const Welcome = () => {
           initial="hidden"
           transition={{ duration: 0.5, delay: 0.5 }}
           animate="visible"
-          className="sm:text-5xl text-3xl text-neutral-800 font-semibold text-center"
+          className="animate-text bg-gradient-to-r from-red-600 via-purple-800 to-pink-500 bg-clip-text text-transparent sm:text-5xl text-3xl text-neutral-800 font-semibold text-center"
         >
           <span className="font-bold p-1">
             Professional Website Solution for your Business

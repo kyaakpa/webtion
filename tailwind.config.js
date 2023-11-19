@@ -9,8 +9,19 @@ module.exports = {
     extend: {
       animation: {
         blob: "blob 7s infinite",
+        text: "text 5s ease infinite",
       },
       keyframes: {
+        text: {
+          "0%, 100%": {
+            "background-size": "200% 200%",
+            "background-position": "left center",
+          },
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "right center",
+          },
+        },
         blob: {
           "0%": {
             transform: "translate(0px, 0px) scale(1)",
