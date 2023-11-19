@@ -31,11 +31,9 @@ const Welcome = () => {
           initial="hidden"
           transition={{ duration: 0.5, delay: 0.5 }}
           animate="visible"
-          className="animate-text bg-gradient-to-r from-red-600 via-purple-800 to-pink-500 bg-clip-text text-transparent sm:text-5xl text-3xl text-neutral-800 font-semibold text-center"
+          className="animate-text bg-gradient-to-r from-red-600 via-purple-800 to-pink-500 bg-clip-text text-transparent sm:text-5xl text-3xl text-neutral-800 font-bold text-center p-2"
         >
-          <span className="font-bold p-1">
-            Professional Website Solution for your Business
-          </span>
+          Professional Website Solution for your Business
         </motion.p>
         <motion.p
           variants={{
