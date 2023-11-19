@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
 export async function POST(req) {
   const form = await req.json();
+
   const name = form.name;
   const email = form.email;
   const orgName = form.orgName;
@@ -10,6 +11,8 @@ export async function POST(req) {
   const contactForm = form.contactForm;
   const googleReviews = form.googleReviews;
   const darkMode = form.darkMode;
+
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   try {
     const mailData = await resend.emails.send({
