@@ -8,8 +8,8 @@ const Nav = () => {
   return (
     <nav>
       <ul className="flex justify-center pt-20 sm:pt-16 sm:gap-12 gap-6 max-[500px]:gap-4 max-[500px]:text-base text-xl h-[15vh] text-neutral-800">
-        <li className={path === "/welcome" ? "active" : "inactive"}>
-          <Link href="/welcome">welcome</Link>
+        <li className={path === "/" ? "active" : "inactive"}>
+          <Link href="/">welcome</Link>
         </li>
         <li className={path === "/services" ? "active" : "inactive"}>
           <Link href={"/services"}>services</Link>

@@ -20,6 +20,7 @@ const Contact = () => {
   const onSubmit = async (data, e) => {
     setIsLoading(true);
     e.preventDefault();
+    
     try {
       const response = await fetch("https://webtion.vercel.app/api/contact", {
         method: "POST",

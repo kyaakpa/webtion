@@ -1,10 +1,9 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-// import "dotenv/config";
 
 export async function POST(req) {
   const form = await req.json();
-  const resend = new Resend(process.env.RESEND_API_KEY);
+  const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
   const fullName = form.fullName;
   const description = form.description;
   const companyName = form.companyName;
