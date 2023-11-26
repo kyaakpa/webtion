@@ -20,7 +20,7 @@ const Contact = () => {
   const onSubmit = async (data, e) => {
     setIsLoading(true);
     e.preventDefault();
-    
+
     try {
       const response = await fetch("https://webtion.vercel.app/api/contact", {
         method: "POST",
@@ -77,7 +77,7 @@ const Contact = () => {
           height={500}
           alt="Human Interaction"
           className="lg:block hidden"
-          priority
+          loading="lazy"
         />
       </div>
       <div className="flex flex-col gap-8 max-sm:-mt-20 self-center rounded-2xl p-6 sm:w-[450px]">

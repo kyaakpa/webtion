@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <div>
+    <div className="mb-24">
       <div className="max-md:text-5xl md:text-7xl md:mx-20 max-md:mx-10 tracking-tighter mt-12">
         <motion.h2
           variants={{
@@ -81,7 +81,7 @@ const About = () => {
           Contact me at{" "}
           <a
             href="mailto:kyaakpalama@gmail.com"
-            className="text-green-700  hover:text-red-500 transition-colors duration-300 ease-in"
+            className="text-green-700 hover:text-red-500 transition-colors duration-300 ease-in"
           >
             kyaakpalama@gmail.com
           </a>
