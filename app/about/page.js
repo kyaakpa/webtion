@@ -27,7 +27,7 @@ const About = () => {
           animate="visible"
           className=" font-bold"
         >
-          I'm <span className="underline decoration-green-500">Sohit</span>
+          I'm Sohit
         </motion.h2>
         <motion.h3
           variants={{
