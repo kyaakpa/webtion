@@ -1,10 +1,11 @@
 export const cardData = [
   {
     title: "Basic",
-    titleColor: "text-green-900",
-    bgColor: "bg-green-100",
-    btnBgColor: "bg-green-300",
+    titleColor: "text-[#FFFFDD]",
+    bgColor: "bg-[#186F65]",
+    btnBgColor: "bg-emerald-500",
     caption: "Perfect for Small Business",
+    captionColor: "text-[#B5CB99]",
     bonusCaption: "",
     list: [
       "Upto 5 pages",
@@ -13,16 +14,16 @@ export const cardData = [
       "Mobile Responsive",
       "Google Reviews",
     ],
-    price: "Purchase for A$1699",
+    price: "For A$1699",
   },
   {
     title: "Premium",
     caption: "Recommended",
     bonusCaption: "",
-    titleColor: "text-pink-900",
-    bgColor: "bg-pink-100",
-    btnBgColor: "bg-pink-300",
-
+    titleColor: "text-[#FAFB73]",
+    bgColor: "bg-[#3C26A0]",
+    btnBgColor: "bg-[#B15EFF]",
+    captionColor: "text-[#B15EFF]",
     list: [
       "Upto 15 pages",
       "Custom WebDesign",
@@ -31,16 +32,16 @@ export const cardData = [
       "Google Reviews",
       "Dark mode",
     ],
-    price: "Purchase for A$2699",
+    price: "For A$2699",
   },
   {
     title: "Custom",
     caption: "Built with your preferences",
     bonusCaption: "Starting from A$1499",
-    titleColor: "text-blue-900",
-    bgColor: "bg-blue-100",
-    btnBgColor: "bg-blue-300",
-
+    titleColor: "text-[#ECF4D6]",
+    bgColor: "bg-[#265073]",
+    btnBgColor: "bg-[#265073]",
+    captionColor: "text-[#9AD0C2]",
     list: [
       "Unlimited pages",
       "Custom WebDesign",

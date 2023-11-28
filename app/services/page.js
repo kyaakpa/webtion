@@ -1,4 +1,4 @@
-import PricingCard from "../components/PricingCard";
+import PricingCard from "../../components/PricingCard";
 import { cardData } from "./cardData";
 import { ToastContainer } from "react-toastify";
 import "@/styles/ReactToastify.css";
@@ -26,6 +26,7 @@ const Services = () => {
             bonusCaption={data.bonusCaption}
             list={data.list}
             price={data.price}
+            captionColor={data.captionColor}
           />
         ))}
       </div>

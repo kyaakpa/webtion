@@ -6,10 +6,13 @@ export async function POST(req) {
   const name = form.name;
   const email = form.email;
   const orgName = form.orgName;
+  const orgAddress = form.orgAddress;
   const pages = form.pages;
   const contactForm = form.contactForm;
   const googleReviews = form.googleReviews;
   const darkMode = form.darkMode;
+  const animationEffects = form.animationEffects;
+  const transitionEffects = form.transitionEffects;
 
   const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 
@@ -47,12 +50,15 @@ export async function POST(req) {
             <div class='container'>
 
               <h3>Company: ${orgName}</h3>
+              <h3>Company Address: ${orgAddress}</h3>
               <h3>Contact Address: ${email}</h3>
               <ul> <h3>Custom Build Details</h3> 
               <li>Number of pages: ${pages}</li>
               <li>Contact Form: ${contactForm}</li>
               <li>Google Reviews: ${googleReviews}</li>
               <li>Dark Mode: ${darkMode}</li>
+              <li>Animation Effects: ${animationEffects}</li>
+              <li>Transition Effects: ${transitionEffects}</li>
               </ul>
             </div>
     </body>

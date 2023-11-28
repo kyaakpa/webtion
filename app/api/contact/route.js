@@ -7,6 +7,7 @@ export async function POST(req) {
   const fullName = form.fullName;
   const description = form.description;
   const companyName = form.companyName;
+  const companyAddress = form.companyAddress;
   const email = form.email;
 
   try {
@@ -28,6 +29,7 @@ export async function POST(req) {
       <body>
               <div class='container'>
                 <h2>Company: ${companyName}</h2>
+                <h2>Company Address: ${companyAddress}</h2>
                 <h2>Contact Address: ${email}</h2>
                 <p>Description: ${description}</p>
               </div>

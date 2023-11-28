@@ -99,6 +99,13 @@ const Contact = () => {
             />
             {errors.username && errors.username.message}
           </div>
+          <div className="flex flex-col">
+            <input
+              {...register("companyAddress")}
+              placeholder="Enterprise/Organisation Address"
+            />
+            {errors.username && errors.username.message}
+          </div>
           <div className="flex flex-col ">
             <input
               type="email"
@@ -137,6 +144,7 @@ const Contact = () => {
             <Image
               src={loading}
               width={24}
+              alt="loading icon"
               className={
                 isLoading === true
                   ? "absolute mt-[2px] ml-3 animate-spin"

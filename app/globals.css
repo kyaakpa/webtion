@@ -11,11 +11,15 @@
 }
 
 .active {
-  @apply font-semibold text-black underline underline-offset-8 decoration-blue-600 max-lg:decoration-green-600;
+  @apply font-semibold text-black transition-colors duration-700;
+}
+
+.inactive {
+  @apply text-neutral-500 transition-colors duration-700;
 }
 
 input {
-  @apply placeholder:text-gray-500 outline-none focus:outline-none p-1 bg-transparent border-neutral-500 focus:border-black border-b-2;
+  @apply placeholder:text-gray-500 outline-none focus:outline-none p-2 bg-transparent border-neutral-500 focus:border-black focus:border-2 focus:rounded border-b-2;
 }
 
 textarea {

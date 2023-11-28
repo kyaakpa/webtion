@@ -1,7 +1,7 @@
-export const Tick = () => {
+export const Tick = ({ fill }) => {
   return (
     <svg
-      fill="#1A1A1A"
+      fill={fill}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 50 50"
       width="24px"
