@@ -43,7 +43,7 @@ const CustomModal = ({ isOpen, setIsOpen }) => {
 
     setTimeout(async () => {
       try {
-        const response = await axios.post(url2, transformedData, {
+        const response = await axios.post(url, transformedData, {
           headers: {
             "Content-Type": "application/json",
           },
