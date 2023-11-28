@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "@/styles/ReactToastify.css";
 import { useState } from "react";
 import loading from "@/public/loading.webp";
+import axios from "axios";
 
 const Contact = () => {
   const [textAreaCount, ChangeTextAreaCount] = useState(0);
@@ -21,13 +22,13 @@ const Contact = () => {
     setIsLoading(true);
     e.preventDefault();
 
+    const url = "https://webtion.vercel.app/api/contact";
+
     try {
-      const response = await fetch("https://webtion.vercel.app/api/contact", {
-        method: "POST",
+      const response = await axios.post(url, data, {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
       });
 
       if (response.status === 200) {
