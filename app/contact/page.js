@@ -7,6 +7,7 @@ import "@/styles/ReactToastify.css";
 import { useState } from "react";
 import loading from "@/public/loading.webp";
 import axios from "axios";
+import Head from "next/head";
 
 const Contact = () => {
   const [textAreaCount, ChangeTextAreaCount] = useState(0);
@@ -60,28 +61,32 @@ const Contact = () => {
     <div
       className={`flex h-[85vh] lg:justify-evenly justify-center  lg:rounded-tl-full`}
     >
-      <svg
-        viewBox="0 0 200 200"
-        xmlns="http://www.w3.org/2000/svg"
-        className="absolute w-[800px] top-[100px] left-0 -z-10  lg:block hidden"
-      >
-        <path
-          fill="#fad4fa"
-          d="M25.7,-46.1C38.2,-37.3,56.4,-40.2,62.6,-34.5C68.8,-28.8,63,-14.4,63.3,0.2C63.6,14.8,70.2,29.6,67.3,41.1C64.5,52.6,52.2,60.8,39.4,65.1C26.6,69.4,13.3,69.8,-0.7,71C-14.6,72.1,-29.2,74,-35.5,66C-41.8,57.9,-39.9,39.9,-42,27.2C-44.1,14.6,-50.2,7.3,-53.5,-1.9C-56.8,-11,-57.1,-22.1,-54.4,-33.7C-51.7,-45.4,-46,-57.6,-36.5,-68.1C-26.9,-78.6,-13.5,-87.2,-3.4,-81.3C6.6,-75.4,13.3,-54.9,25.7,-46.1Z"
-          transform="translate(100 100)"
-        />
-      </svg>
+      <Head>
+        <link rel="preload" href="/waving.webp" as="image" />
+      </Head>
       <div>
         <Image
           src={humanImage}
           width={500}
           height={500}
-          alt="Human Interaction"
+          alt="male and female waving"
           className="lg:block hidden"
           loading="lazy"
+          fetchPriority="high"
         />
+        <svg
+          viewBox="0 0 200 200"
+          xmlns="http://www.w3.org/2000/svg"
+          className="absolute w-[700px] top-[150px] -left-20 -z-10  lg:block hidden"
+        >
+          <path
+            fill="#fad4fa"
+            d="M25.7,-46.1C38.2,-37.3,56.4,-40.2,62.6,-34.5C68.8,-28.8,63,-14.4,63.3,0.2C63.6,14.8,70.2,29.6,67.3,41.1C64.5,52.6,52.2,60.8,39.4,65.1C26.6,69.4,13.3,69.8,-0.7,71C-14.6,72.1,-29.2,74,-35.5,66C-41.8,57.9,-39.9,39.9,-42,27.2C-44.1,14.6,-50.2,7.3,-53.5,-1.9C-56.8,-11,-57.1,-22.1,-54.4,-33.7C-51.7,-45.4,-46,-57.6,-36.5,-68.1C-26.9,-78.6,-13.5,-87.2,-3.4,-81.3C6.6,-75.4,13.3,-54.9,25.7,-46.1Z"
+            transform="translate(100 100)"
+          />
+        </svg>
       </div>
-      <div className="flex flex-col gap-8 max-sm:-mt-20 self-center rounded-2xl p-6 sm:w-[450px]">
+      <div className="flex flex-col gap-8 self-center rounded-2xl p-6 sm:w-[450px]">
         <h1 className="contact text-center text-7xl font-semibold -tracking-[6px]">
           CONTACT
         </h1>

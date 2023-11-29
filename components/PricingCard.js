@@ -62,7 +62,7 @@ const PricingCard = ({
       {price === "Build Now" ? (
         <button
           onClick={openModal}
-          className="flex p-4 justify-center font-semibold lg:text-2xl text-lg lg:block text-[#ECF4D6] bg-[#2D9596] rounded-xl self-end lg:w-full w-full hover:bg-[#ECF4D6] hover:text-[#2D9596] transition-colors duration-500"
+          className="flex p-4 justify-center font-semibold lg:text-2xl text-lg lg:block text-[#FFF] bg-[#2D9596] rounded-xl self-end lg:w-full w-full hover:bg-[#ECF4D6] hover:text-[#2D9596] transition-colors duration-500"
         >
           {price}
         </button>
