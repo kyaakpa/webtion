@@ -140,8 +140,8 @@ const CustomModal = ({ isOpen, setIsOpen }) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="opacity-100 w-[400px] sm:w-[600px] flex justify-center rounded-2xl">
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl max-sm:px-6 p-4 text-left align-middle shadow-xl transition-all bg-neutral-50">
+              <div className="opacity-100 max-[500px]:w-[350px] sm:w-[600px] flex justify-center rounded-2xl">
+                <Dialog.Panel className="w-full transform overflow-hidden rounded-2xl max-sm:px-6 p-4 text-left align-middle shadow-xl transition-all bg-neutral-50">
                   <div className="flex justify-between mt-1">
                     <Dialog.Title
                       as="h3"
@@ -226,7 +226,7 @@ const CustomModal = ({ isOpen, setIsOpen }) => {
                       <div className="flex flex-col gap-4 mb-2">
                         <button
                           type="button"
-                          className="gap-4 w-36 text-lg justify-center rounded-md border border-transparent bg-neutral-900 px-6 py-2 font-medium text-white focus:outline-none hover:animate-pulse transition-colors ease-linear duration-300"
+                          className="max-sm:text-base gap-4 w-36 text-lg justify-center rounded-md border border-transparent bg-neutral-900 px-6 py-2 font-medium text-white focus:outline-none hover:animate-pulse transition-colors ease-linear duration-300"
                           onClick={() => setIsNext(false)}
                         >
                           <span>{`<- Go Back`}</span>
@@ -296,13 +296,13 @@ const CustomModal = ({ isOpen, setIsOpen }) => {
                     )}
 
                     <div className="mt-8 pb-6 flex justify-between">
-                      <div className="text-lg font-medium">
+                      <div className="max-sm:text-base text-lg font-medium">
                         Total Price: ${totalPrice}
                       </div>
                       {!isNext && (
                         <button
                           type="button"
-                          className="flex gap-4 text-lg justify-center rounded-md border border-transparent bg-neutral-900 px-6 py-2 font-medium text-white focus:outline-none hover:animate-pulse transition-colors ease-linear duration-300"
+                          className="flex gap-4 max-[500px]:text-base text-lg justify-center rounded-md border border-transparent bg-neutral-900 px-6 py-2 font-medium text-white focus:outline-none hover:animate-pulse transition-colors ease-linear duration-300"
                           onClick={() => setIsNext(true)}
                         >
                           <span>Next Step</span>
