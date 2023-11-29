@@ -17,11 +17,12 @@ const Contact = () => {
     formState: { errors },
   } = useForm();
 
+  const url = "https://www.webtion.org/api/custom";
+  const url2 = "http://localhost:3000/api/custom";
+
   const onSubmit = async (data, e) => {
     setIsLoading(true);
     e.preventDefault();
-
-    const url = "https://webtion.org/api/contact";
 
     try {
       const response = await axios.post(url, data, {

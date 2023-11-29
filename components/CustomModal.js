@@ -24,7 +24,7 @@ const CustomModal = ({ isOpen, setIsOpen }) => {
   const [isNext, setIsNext] = useState(false);
   const [checkedOptions, setCheckedOptions] = useState(false);
 
-  const url = "https://webtion.org/api/custom";
+  const url = "https://www.webtion.org/api/custom";
   const url2 = "http://localhost:3000/api/custom";
 
   const onSubmit = (data, e) => {
