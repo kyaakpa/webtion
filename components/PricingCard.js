@@ -35,7 +35,7 @@ const PricingCard = ({
       <div className={`max-lg:flex max-lg:p-8 max-sm:px-2 lg:p-4`}>
         <div className="lg:p-2 max-lg:w-1/2 flex flex-col lg:items-start lg:justify-between max-lg:justify-center lg:h-[8vh]">
           <h5
-            className={`text-4xl pt-3 font-bold max-[500px]:text-2xl ${titleColor}`}
+            className={`text-4xl pt-3 font-bold max-[500px]:text-3xl ${titleColor}`}
           >
             {title}
           </h5>
@@ -56,7 +56,7 @@ const PricingCard = ({
                   visible: { opacity: 1, x: 0 },
                 }}
                 initial="hidden"
-                transition={{ duration: 0.5, delay: 0.3 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
                 animate="visible"
                 className="flex gap-2 items-center lg:font-medium"
               >
