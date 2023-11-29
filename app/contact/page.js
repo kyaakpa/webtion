@@ -17,8 +17,8 @@ const Contact = () => {
     formState: { errors },
   } = useForm();
 
-  const url = "https://www.webtion.org/api/custom";
-  const url2 = "http://localhost:3000/api/custom";
+  const url = "https://www.webtion.org/api/contact";
+  const url2 = "http://localhost:3000/api/contact";
 
   const onSubmit = async (data, e) => {
     setIsLoading(true);
