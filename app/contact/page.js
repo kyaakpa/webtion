@@ -70,7 +70,11 @@ const Contact = () => {
           className="flex flex-col gap-4 w-full "
           onSubmit={handleSubmit(onSubmit)}
         >
-          <div className="form-divs">
+          <div
+            className="form-divs"
+            role="group"
+            aria-labelledby="personalInfo"
+          >
             <div className="form-divs-inner">
               <span>Name *</span>
               <input
@@ -79,6 +83,7 @@ const Contact = () => {
                   required: "Required",
                 })}
                 placeholder="Full Name"
+                aria-label="Full Name"
               />
 
               {errors.fullName && errors.fullName.message}
@@ -87,6 +92,7 @@ const Contact = () => {
               <span>Email *</span>
               <input
                 type="email"
+                aria-label="Email"
                 placeholder="Personal/Work Email"
                 {...register("email", {
                   required: "Required",
@@ -99,7 +105,11 @@ const Contact = () => {
               {errors.email && errors.email.message}
             </div>
           </div>
-          <div className="form-divs">
+          <div
+            className="form-divs"
+            role="group"
+            aria-labelledby="businessInfo"
+          >
             <div className="form-divs-inner">
               <span>Business Name</span>
               <input
@@ -133,12 +143,15 @@ const Contact = () => {
               })}
               rows={7}
               maxLength={500}
+              aria-label="Message"
               onChange={(e) => ChangeTextAreaCount(e.target.value.length)}
             />
           </div>
           <button
             type="submit"
             onClick={handleSubmit(onSubmit)}
+            aria-busy={isLoading}
+            aria-label="Submit"
             className="text-xl mt-3 active:scale-90 bg-black hover:bg-neutral-700 p-2 w-[200px] text-white transition-colors duration-200 ease-in"
           >
             <Image
