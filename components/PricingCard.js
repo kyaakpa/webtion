@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Tick } from "./Icons";
 import CustomModal from "./CustomModal";
+import { motion } from "framer-motion";
 
 const PricingCard = ({
   title,
@@ -48,13 +49,20 @@ const PricingCard = ({
         <div className="flex flex-col w-full max-lg:w-1/2 justify-center lg:pt-16 max-[500px]:text-xs text-white">
           <ul className="flex flex-col gap-2 max-[500px]:text-sm">
             {list.map((item, index) => (
-              <li
+              <motion.li
                 key={index}
+                variants={{
+                  hidden: { opacity: 0, x: 50 },
+                  visible: { opacity: 1, x: 0 },
+                }}
+                initial="hidden"
+                transition={{ duration: 0.5, delay: 0.3 }}
+                animate="visible"
                 className="flex gap-2 items-center lg:font-medium"
               >
                 <Tick fill={"#eaeaea"} className="scale-1/2 opacity-[0.99]" />
                 <span className="max-[412px]:text-sm">{item}</span>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </div>

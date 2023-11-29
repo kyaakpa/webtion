@@ -1,17 +1,29 @@
+"use client";
 import PricingCard from "../../components/PricingCard";
 import { cardData } from "./cardData";
 import { ToastContainer } from "react-toastify";
 import "@/styles/ReactToastify.css";
+import { motion } from "framer-motion";
 
 const Services = () => {
   return (
     <div className="text-center max-lg:mb-20">
       <ToastContainer />
       <div className="mb-12">
-        <h2 className="text-5xl p-3 tracking-tighter font-bold">
-          Growing your business with us
-          <div className="relative -z-10 left-1/2 max-md:hidden -top-7 transform -translate-x-1/2 w-[600px] h-8 bg-blue-200" />
-        </h2>
+        <div className="text-5xl p-3 tracking-tighter font-bold">
+          <motion.h2
+            variants={{
+              hidden: { opacity: 0, y: 50 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            initial="hidden"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            animate="visible"
+          >
+            Growing your business with us
+          </motion.h2>
+          <div className="relative animate-textSlide -z-10 left-1/2 max-md:hidden -top-7 transform -translate-x-1/2 w-[550px] h-8 bg-blue-200 " />
+        </div>
         <p className="p-3 text-neutral-800 md:-mt-8">
           We offer various choices as per your requirements
         </p>

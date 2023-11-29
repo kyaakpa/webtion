@@ -10,6 +10,7 @@ module.exports = {
       animation: {
         blob: "blob 7s infinite",
         text: "text 5s ease infinite",
+        textSlide: "textSlide 4s ease",
       },
       keyframes: {
         text: {
@@ -35,6 +36,10 @@ module.exports = {
           "100%": {
             transform: "tranlate(0px, 0px) scale(1)",
           },
+        },
+        textSlide: {
+          "0%": { width: "0px" },
+          "100%": { width: "550px" },
         },
       },
     },
