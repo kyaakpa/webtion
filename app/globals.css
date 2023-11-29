@@ -18,12 +18,17 @@
   @apply text-neutral-500 transition-colors duration-700;
 }
 
-input {
-  @apply placeholder:text-gray-500 outline-none focus:outline-none p-2 bg-transparent border-neutral-500 focus:border-black focus:border-2 focus:rounded border-b-2;
+input,
+textarea {
+  @apply p-2 bg-transparent;
 }
 
-textarea {
-  @apply outline-none placeholder:text-gray-500 focus:outline-none p-2 border-2 border-neutral-500 focus:border-black rounded-xl bg-transparent;
+.form-divs {
+  @apply flex gap-4 md:[&>*]:w-1/2  max-md:flex-col;
+}
+
+.form-divs-inner {
+  @apply flex flex-col [&>span]:py-1 [&>input]:bg-gray-100 [&>input]:outline-none;
 }
 
 /* width */
