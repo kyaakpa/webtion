@@ -19,7 +19,7 @@ const Home = () => {
           initial="hidden"
           transition={{ duration: 0.3, delay: 0.09 }}
           animate="visible"
-          className="sm:text-9xl text-8xl font-bold  p-3 tracking-tight from-black to-neutral-600 text-transparent bg-gradient-to-b bg-clip-text"
+          className="sm:text-9xl text-8xl font-bold  p-3 tracking-tighter from-black to-neutral-600 text-transparent bg-gradient-to-b bg-clip-text"
         >
           Webtion
         </motion.h1>
