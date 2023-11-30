@@ -12,7 +12,7 @@ export async function POST(req) {
 
   try {
     const mailData = await resend.emails.send({
-      from: `${fullName} <onboarding@resend.dev>`,
+      from: `${fullName} <kyaakpalama@webtion.org>`,
       to: ["soheatshrestha@gmail.com"],
       subject: `Enquiry from ${fullName}`,
       html: `
