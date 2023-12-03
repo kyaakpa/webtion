@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const About = () => {
   return (
     <div className="mb-24">
-      <div className="max-md:text-5xl md:text-7xl md:mx-20 max-md:mx-10 tracking-tighter mt-12">
+      <div className="max-md:text-5xl md:text-7xl max-[550px]:mx-10 max-sm:mx-20 max-md:mx-40 md:mx-64  tracking-tighter mt-24">
         <motion.h2
           variants={{
             hidden: { opacity: 0, y: 50 },
@@ -15,7 +15,7 @@ const About = () => {
           animate="visible"
           className=" font-bold"
         >
-          Hey there &#128075;,
+          Hey there&#128075;
         </motion.h2>{" "}
         <motion.h2
           variants={{
@@ -76,14 +76,14 @@ const About = () => {
           initial="hidden"
           transition={{ duration: 0.8, delay: 0.5 }}
           animate="visible"
-          className="max-md:mt-12 md:mt-20 max-md:text-xl md:text-3xl tracking-tight leading-10"
+          className="max-md:mt-12 md:mt-20 max-md:text-xl md:text-3xl tracking-tight text-right leading-10"
         >
           Contact me at{" "}
           <a
             href="mailto:kyaakpalama@gmail.com"
-            className="text-green-700 hover:text-red-500 transition-colors duration-300 ease-in"
+            className="text-green-600 hover:text-red-500 transition-colors duration-300 ease-in"
           >
-            kyaakpalama@gmail.com
+            kyaakpalama@webtion.org
           </a>
         </motion.p>
       </div>

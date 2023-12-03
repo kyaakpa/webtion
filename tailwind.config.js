@@ -11,6 +11,7 @@ module.exports = {
         blob: "blob 7s infinite",
         text: "text 5s ease infinite",
         textSlide: "textSlide 4s ease",
+        hiEmoji: "hiEmoji infinite  1.5s",
       },
       keyframes: {
         text: {
@@ -34,12 +35,17 @@ module.exports = {
             transform: "translate(-20px, 20px) scale(0.8)",
           },
           "100%": {
-            transform: "tranlate(0px, 0px) scale(1)",
+            transform: "translate(0px, 0px) scale(1)",
           },
         },
         textSlide: {
           "0%": { width: "0px" },
           "100%": { width: "550px" },
+        },
+        hiEmoji: {
+          "0%": { transform: "rotate(0deg)" },
+          "50%": { transform: "rotate(45deg)" },
+          "100%": { transform: "rotate(0deg)" },
         },
       },
     },

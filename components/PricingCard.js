@@ -32,7 +32,7 @@ const PricingCard = ({
     >
       <CustomModal isOpen={isOpen} setIsOpen={setIsOpen} />
 
-      <div className={`max-lg:flex max-lg:p-8 max-sm:px-2 lg:p-4`}>
+      <div className={`max-lg:flex  max-lg:p-8 max-sm:px-2 lg:p-4`}>
         <div className="lg:p-2 max-lg:w-1/2 flex flex-col lg:items-start lg:justify-between max-lg:justify-center lg:h-[8vh]">
           <h5
             className={`text-4xl pt-3 font-bold max-[500px]:text-3xl ${titleColor}`}
@@ -47,7 +47,7 @@ const PricingCard = ({
           </p>
         </div>
         <div className="flex flex-col w-full max-lg:w-1/2 justify-center lg:pt-16 max-[500px]:text-xs text-white">
-          <ul className="flex flex-col gap-2 max-[500px]:text-sm">
+          <ul className="flex flex-col gap-2  max-[500px]:text-sm">
             {list.map((item, index) => (
               <motion.li
                 key={index}

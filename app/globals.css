@@ -11,7 +11,7 @@
 }
 
 .active {
-  @apply font-semibold text-black transition-colors duration-700;
+  @apply font-semibold transition-colors duration-700;
 }
 
 .inactive {
@@ -24,7 +24,7 @@ textarea {
 }
 
 .form-divs {
-  @apply flex gap-4 md:[&>*]:w-1/2  max-md:flex-col;
+  @apply flex gap-4 md:[&>*]:w-1/2 max-md:flex-col;
 }
 
 .form-divs-inner {
@@ -41,6 +41,7 @@ textarea {
 
 ::-webkit-scrollbar-thumb {
   background: #333;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {

@@ -29,8 +29,6 @@ const CustomModal = ({ isOpen, setIsOpen }) => {
 
   const onSubmit = (data, e) => {
     setIsLoading(true);
-    console.log(data);
-
     const transformedData = {
       ...data,
       animationEffects: data.animationEffects ? "yes" : "no",
